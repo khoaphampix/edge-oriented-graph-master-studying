@@ -1,0 +1,28 @@
+Loading training data ...
+  Documents: 1000 
+  Words: 14025
+  Relations: 10327
+	1:CID:2   	2050 	ID: 0
+	1:NR:2    	8277 	ID: 1
+  Entities: 6803
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	Chemical  	2974 	ID: 3
+	Disease   	3829 	ID: 4
+  Singletons: 5233/14025
+  Found pre-trained word embeddings: 18605 x 200 --> Words + Pre-trained: 18760
+
+Loading testing data ...
+  Documents: 500  
+  Words: 10188
+  Relations: 5204
+	1:CID:2   	1066 	ID: 0
+	1:NR:2    	4138 	ID: 1
+  Entities: 3422
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	Chemical  	1434 	ID: 3
+	Disease   	1988 	ID: 4
+  Singletons: 4058/10188

@@ -1,6 +1,6 @@
 # network
 batch: 2
-epoch: 50
+epoch: 1
 bilstm_layers: 1
 word_dim: 200
 lstm_dim: 100
@@ -21,11 +21,46 @@ min_w_freq: 1
 walks_iter: 4
 
 # data based
-train_data: ../data/CDR/processed/train+dev_filter.data
-test_data: ../data/CDR/processed/test_filter.data
-embeds: ../embeds/PubMed-CDR.txt
-folder: ../results/cdr-test
+# train_data: ../data/CDR/processed/train+dev_filter.data
+# test_data: ../data/CDR/processed/test_filter.data
+# embeds: ../embeds/PubMed-CDR.txt
+# folder: ../results/cdr-test
+# save_pred: test
+
+## experiment data (n paragraph)
+              #  data/CDR/processed/experiment_filter.data
+# train_data: ../data/CDR/processed/dev_filter_50.data
+# test_data: ../data/CDR/processed/dev_filter_50.data
+# embeds: ../embeds/PubMed-CDR.txt
+# folder: ../results/cdr-test
+# save_pred: test
+
+
+# experiment data (1 paragraph)
+              #  data/CDR/processed/experiment_filter.data
+# train_data: ../data/CDR/processed/experiment_filter.data
+# test_data: ../data/CDR/processed/experiment_filter.data
+# embeds: ../embeds/PubMed-CDR.txt
+# folder: ../results/cdr-test
+# save_pred: test
+
+
+# ## vlsp data
+# train_data: ../data/CDR/processed/vlsp_processed.data
+# test_data: ../data/CDR/processed/vlsp_processed_test.data
+# embeds: ../embeds/PubMed-VLSP.txt
+# folder: ../results/vlsp-test
+# save_pred: test
+
+
+# ## vlsp data
+train_data: ../data/VLSP/processed/vlsp_processed.data
+test_data: ../data/VLSP/processed/vlsp_processed.data
+embeds: ../embeds/PubMed-VLSP.txt
+folder: ../results/vlsp-test
 save_pred: test
+
+
 
 # options (chosen from parse input otherwise false)
 lowercase: false
@@ -42,10 +77,29 @@ freeze_words: true
 # extra
 seed: 0
 shuffle_data: true
-label2ignore: 1:NR:2
+label2ignore: 1:NR:2 # need to label data in VLSP
 primary_metric: micro_f
 direction: l2r+r2l
-include_pairs: ['Chemical-Disease', 'Chemical-Chemical', 'Disease-Disease', 'Disease-Chemical']
-classify_pairs: ['Chemical-Disease']
+
+## origin data
+# include_pairs: ['Chemical-Disease', 'Chemical-Chemical', 'Disease-Disease', 'Disease-Chemical']
+# classify_pairs: ['Chemical-Disease']
+
+# # vlsp data
+include_pairs: ['LOCATION-LOCATION', 'LOCATION-PERSON', 'LOCATION-ORGANIZATION', 'PERSON-LOCATION', 'PERSON-PERSON', 'PERSON-ORGANIZATION', 'ORGANIZATION-LOCATION', 'ORGANIZATION-PERSON', 'ORGANIZATION-ORGANIZATION']
+classify_pairs: ['PERSON-LOCATION', 'ORGANIZATION-LOCATION', 'LOCATION-LOCATION', 'ORGANIZATION-ORGANIZATION', 'PERSON-PERSON', 'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION']
+
+
 edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind']
 window: 
+
+# classify_pairs: [
+#     # 1 LOCATED
+#     'PERSON-LOCATION, 'ORGANIZATION-LOCATION',
+#     # 2 PART–WHOLE
+#     'LOCATION-LOCATION, 'ORGANIZATION-ORGANIZATION', #'ORGANIZATION-LOCATION',
+#     # 3 PERSONAL–SOCIAL
+#     'PERSON-PERSON',
+#     # 4 AFFILIATION
+#     'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION' #PERSON-LOCATION, 'ORGANIZATION-ORGANIZATION'\]
+# ]

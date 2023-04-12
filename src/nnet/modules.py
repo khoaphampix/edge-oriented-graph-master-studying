@@ -51,8 +51,12 @@ class EmbedLayer(nn.Module):
                 self.embedding.weight.data[mapping[word], :] = torch.from_numpy(pretrained[word])
             elif word.lower() in pretrained:
                 self.embedding.weight.data[mapping[word], :] = torch.from_numpy(pretrained[word.lower()])
+        ## CDR
+        # assert (self.embedding.weight[mapping['and']].to('cpu').data.numpy() == pretrained['and']).all(), \
+        #     'ERROR: Embeddings not assigned'
 
-        assert (self.embedding.weight[mapping['and']].to('cpu').data.numpy() == pretrained['and']).all(), \
+        ## VLSP
+        assert (self.embedding.weight[mapping['nhẹ']].to('cpu').data.numpy() == pretrained['nhẹ']).all(), \
             'ERROR: Embeddings not assigned'
 
     def forward(self, xs):

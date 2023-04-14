@@ -53,14 +53,20 @@ walks_iter: 4
 # save_pred: test
 
 
-# ## vlsp data
+# # ## vlsp data
+# train_data: ../data/VLSP/processed/vlsp_processed.data
+# test_data: ../data/VLSP/processed/vlsp_processed.data
+# embeds: ../embeds/PubMed-VLSP.txt
+# folder: ../results/vlsp-test
+# save_pred: test
+
+
+# # ## vlsp data
 train_data: ../data/VLSP/processed/vlsp_processed.data
-test_data: ../data/VLSP/processed/vlsp_processed.data
+test_data: ../data/VLSP/processed/vlsp_processed_more.data
 embeds: ../embeds/PubMed-VLSP.txt
 folder: ../results/vlsp-test
 save_pred: test
-
-
 
 # options (chosen from parse input otherwise false)
 lowercase: false

@@ -1,3 +1,37 @@
+### VLPS.tvs to Pubtatoe
+# replace file name: train as dev 
+    - dev: VLSP2020_RE_dev_org_use_TRAIN_as_DEV
+    - train: VLSP2020_RE_dev
+
+
+DEV
+
+total: 250
+double_quote: 11
+no_relation: 45
+skip_review_later: 1
+data_errors_: 13
+worked_files: 180
+
+TRAIN
+total: 506
+double_quote: 33
+no_relation: 124
+skip_review_later: 0
+data_errors_: 9
+worked_files: 340
+
+WE
+total set 521
+valid:  329
+
+
+Pubtator format: 
+    23351998|t|
+    23351998|a| <passage>
+    23351998    <ent>
+    23351998    <rel>
+
 # When update code from Working to here (studying)
 ## rename from/to
 edge-oriented-graph-master-WORKING/dataProcessingOfficial
@@ -21,12 +55,8 @@ processing_data.py
         <valid files> choosen by the view_data.py
 
     OUT: 
-        dev_processed/processed_txt
-            format: 
-                23351998|t|
-                23351998|a| <passage>
-                23351998    <ent>
-                23351998    <rel>
+        vlsp to <pubtator-format> dev_processed/processed_txt
+
 
         dev_processed/CDR_DevelopmentSet.PubTator.txt
             merger all <dev_processed/processed_txt> to a file

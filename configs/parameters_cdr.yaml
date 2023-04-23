@@ -63,7 +63,7 @@ walks_iter: 4
 
 # # ## vlsp data
 train_data: ../data/VLSP/processed/vlsp_processed.data
-test_data: ../data/VLSP/processed/vlsp_processed_more.data
+test_data:  ../data/VLSP/processed/vlsp_processed_many.data
 embeds: ../embeds/PubMed-VLSP.txt
 folder: ../results/vlsp-test
 save_pred: test
@@ -99,13 +99,13 @@ classify_pairs: ['PERSON-LOCATION', 'ORGANIZATION-LOCATION', 'LOCATION-LOCATION'
 edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind']
 window: 
 
-# classify_pairs: [
-#     # 1 LOCATED
-#     'PERSON-LOCATION, 'ORGANIZATION-LOCATION',
-#     # 2 PART–WHOLE
-#     'LOCATION-LOCATION, 'ORGANIZATION-ORGANIZATION', #'ORGANIZATION-LOCATION',
-#     # 3 PERSONAL–SOCIAL
-#     'PERSON-PERSON',
-#     # 4 AFFILIATION
-#     'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION' #PERSON-LOCATION, 'ORGANIZATION-ORGANIZATION'\]
-# ]
+classify_pairs: [
+    # 1 LOCATED
+    'PERSON-LOCATION, 'ORGANIZATION-LOCATION',
+    # 2 PART–WHOLE
+    'LOCATION-LOCATION, 'ORGANIZATION-ORGANIZATION', #'ORGANIZATION-LOCATION',
+    # 3 PERSONAL–SOCIAL
+    'PERSON-PERSON',
+    # 4 AFFILIATION
+    'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION' #PERSON-LOCATION, 'ORGANIZATION-ORGANIZATION'\]
+]

@@ -177,7 +177,8 @@ def read(input_file, documents, entities, relations):
 
                 if p[11] not in entities[pmid]:
                     entities[pmid][p[11]] = EntityInfo(p[11], p[13], p[14], p[15], p[16])
-
+            
+            # many entity not in a relation
             assert len(relations[pmid]) == allp
 
     todel = []

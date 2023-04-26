@@ -2,7 +2,8 @@
 batch: 2
 epoch: 1
 bilstm_layers: 1
-word_dim: 200
+word_dim: 192
+# word_dim: 200
 lstm_dim: 100
 out_dim: 100
 type_dim: 10
@@ -62,11 +63,47 @@ walks_iter: 4
 
 
 # # ## vlsp data
-train_data: ../data/VLSP/processed/vlsp_processed.data
-test_data:  ../data/VLSP/processed/vlsp_processed_many.data
-embeds: ../embeds/PubMed-VLSP.txt
+# train_data: ../data/VLSP/processed/vlsp_processed.data
+# test_data:  ../data/VLSP/processed/vlsp_processed_many.data
+# embeds: ../embeds/PubMed-VLSP.txt
+# folder: ../results/vlsp-test
+# save_pred: test
+
+# # ## vlsp data
+train_data: ../data/VLSP/tunning/vlsp_tunning_train.data
+test_data:  ../data/VLSP/tunning/vlsp_tunning_test.data
+# embeds: ../embeds/PubMed-VLSP.txt
+embeds: 0
 folder: ../results/vlsp-test
 save_pred: test
+
+# network
+batch: 2
+epoch: 1
+bilstm_layers: 1
+word_dim: 192
+# word_dim: 200
+lstm_dim: 100
+out_dim: 100
+type_dim: 10
+beta: 0.8
+dist_dim: 10
+drop_i: 0.5
+drop_m: 0.0
+drop_o: 0.3
+lr: 0.001
+gc: 10
+reg: 0.001
+opt: adam
+patience: 10
+unk_w_prob: 0.5
+min_w_freq: 1
+walks_iter: 8
+
+
+
+
+
 
 # options (chosen from parse input otherwise false)
 lowercase: false
@@ -99,13 +136,13 @@ classify_pairs: ['PERSON-LOCATION', 'ORGANIZATION-LOCATION', 'LOCATION-LOCATION'
 edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind']
 window: 
 
-classify_pairs: [
-    # 1 LOCATED
-    'PERSON-LOCATION, 'ORGANIZATION-LOCATION',
-    # 2 PART–WHOLE
-    'LOCATION-LOCATION, 'ORGANIZATION-ORGANIZATION', #'ORGANIZATION-LOCATION',
-    # 3 PERSONAL–SOCIAL
-    'PERSON-PERSON',
-    # 4 AFFILIATION
-    'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION' #PERSON-LOCATION, 'ORGANIZATION-ORGANIZATION'\]
-]
+# classify_pairs: [
+#     # 1 LOCATED
+#     'PERSON-LOCATION, 'ORGANIZATION-LOCATION',
+#     # 2 PART–WHOLE
+#     'LOCATION-LOCATION, 'ORGANIZATION-ORGANIZATION', #'ORGANIZATION-LOCATION',
+#     # 3 PERSONAL–SOCIAL
+#     'PERSON-PERSON',
+#     # 4 AFFILIATION
+#     'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION' #PERSON-LOCATION, 'ORGANIZATION-ORGANIZATION'\]
+# ]

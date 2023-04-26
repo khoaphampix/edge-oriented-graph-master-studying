@@ -34,7 +34,9 @@ Pubtator format:
 
 # When update code from Working to here (studying)
 ## rename from/to
+
 edge-oriented-graph-master-WORKING/dataProcessingOfficial
+
 ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned
 
 
@@ -133,3 +135,25 @@ OUT
 
     Intermediate <feedback> <re-run-until-clean>
     -  error_not_found_ent_in_msg_to_half_manual_edit_words_in_doc
+
+
+
+2
+
+
+YES. Increasing number of epochs over-fits the CNN model. This happens because of lack of train data or model is too complex with millions of parameters. To handle this situation the options are
+
+we need to come-up with a simple model with less number of parameters to learn
+add more data by augmentation
+add noise to dense or convolution layers
+add drop-out layers
+add l1 or l2 regularizers
+add early stopping
+check the model accuracy on validation data
+early stopping will tell you appropriate epochs without overfitting the model
+
+https://www.v7labs.com/blog/overfitting
+
+https://sisyphus.gitbook.io/project/deep-learning-basics/basics/multi-class-and-cross-entropy-loss
+
+https://devblogs.microsoft.com/cse/2016/09/13/training-a-classifier-for-relation-extraction-from-medical-literature/

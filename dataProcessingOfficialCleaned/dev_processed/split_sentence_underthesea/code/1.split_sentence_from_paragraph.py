@@ -1,3 +1,19 @@
+"""
+INPUT: 
+    - all docs, 1 paragraph - 1 line (filter (no-relation) raw data without any processing like: remove dot, quote ...)
+    - All_sentence.PubTator.txt
+    
+OUTPUT: 
+    - all docs, 1 paragraph - with splited sentences with struct: <code><$$##$$$$##$$><sent><$$##$$$$##$$><sent>
+    - saved to <split_sentence_from_paragraph.txt>
+    
+# HOW 
+split to sentence smartly by underthesea (recognize 20.10, TP.HCM ...)
+replace \xa0 (bug by text after processed by underthesea)
+
+"""
+
+
 import json
 
 from underthesea import sent_tokenize, word_tokenize

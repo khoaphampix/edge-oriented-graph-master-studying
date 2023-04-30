@@ -35,9 +35,10 @@ Pubtator format:
 # When update code from Working to here (studying)
 ## rename from/to
 
-edge-oriented-graph-master-WORKING/dataProcessingOfficial
+"/Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/edge-oriented-graph-master-WORKING/dataProcessingOfficial/dev_processed/split_sentence_underthesea/docs/common_info_embedd_files/split_passage_for_final_processed
 
-ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned
+"/Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed
+
 
 
 

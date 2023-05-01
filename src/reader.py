@@ -143,6 +143,8 @@ def read(input_file, documents, entities, relations):
     """
     lengths = []
     sents = []
+
+    duplicates_times = 0
     with open(input_file, 'r') as infile:
         for line in infile:
             line = line.rstrip().split('\t')
@@ -169,7 +171,8 @@ def read(input_file, documents, entities, relations):
                     relations[pmid][(p[5], p[11])] = PairInfo(p[0], p[1], p[2])
                     allp += 1
                 else:
-                    print('duplicates!')
+                    # print('duplicates!')
+                    duplicates_times +=1
 
                 # entities
                 if p[5] not in entities[pmid]:
@@ -181,6 +184,7 @@ def read(input_file, documents, entities, relations):
             # many entity not in a relation
             assert len(relations[pmid]) == allp
 
+    print("duplicates_times >>> ", duplicates_times)
     todel = []
     for pmid, d in relations.items():
         if not relations[pmid]:

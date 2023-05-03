@@ -158,3 +158,18 @@ https://www.v7labs.com/blog/overfitting
 https://sisyphus.gitbook.io/project/deep-learning-basics/basics/multi-class-and-cross-entropy-loss
 
 https://devblogs.microsoft.com/cse/2016/09/13/training-a-classifier-for-relation-extraction-from-medical-literature/
+
+
+
+Reduce the batch size: This is the most common solution to the "CUDA out of memory" error. Try reducing the batch size until the error goes away. You can experiment with different batch sizes to find the largest size that does not produce the error.
+
+Reduce the complexity of the model: If reducing the batch size does not work, you may need to reduce the complexity of your model. Try simplifying your model architecture, removing unnecessary layers or parameters, or using a smaller pre-trained model.
+
+Use a larger GPU: If your current GPU does not have enough memory to train your model, you can try upgrading to a larger GPU with more memory.
+
+Use gradient checkpointing: Gradient checkpointing is a technique that allows you to trade off memory usage for computation time. It does this by recomputing certain intermediate values during the backward pass, rather than storing them in memory. This can help reduce the memory usage of your model.
+
+Use mixed-precision training: Mixed-precision training is a technique that uses lower-precision data types (e.g., float16 instead of float32) to reduce the memory usage of your model. This can significantly reduce the memory requirements of your model, allowing you to train larger models with the same hardware.
+
+Free up GPU memory: You can also try freeing up GPU memory by deleting unnecessary variables or tensors, or by using PyTorch's memory management functions (e.g., torch.cuda.empty_cache()).
+

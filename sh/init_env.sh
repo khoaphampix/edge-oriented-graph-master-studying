@@ -9,6 +9,7 @@ sudo apt-get install zip -y
 
 
 git clone https://github.com/khoaphampix/edge-oriented-graph-master-studying.git
+cd /home/edge-oriented-graph-master-studying
 git checkout dev-low-memory
 
 

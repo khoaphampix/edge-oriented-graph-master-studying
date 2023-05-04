@@ -4,6 +4,7 @@ data/CDR/
 data/GDA/
 data/VLSP/dummy
 data/VLSP/processed
+data/VLSP/processed_bak
 
 sh/.env
 

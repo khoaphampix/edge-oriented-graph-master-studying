@@ -135,8 +135,8 @@ class Trainer:
         print('\n======== START TRAINING: {} ========\n'.format(
             datetime.datetime.now().strftime("%d-%m-%y_%H:%M:%S")))
         
-        print("print(torch.cuda.max_memory_split) >>>")    
-        print(torch.cuda.max_memory_split)
+        # print("print(torch.cuda.max_memory_split) >>>")    
+        # print(torch.cuda.max_memory_split)
 
         random.shuffle(self.data['train'])  # shuffle training data at least once
         for epoch in range(1, self.epoch+1):

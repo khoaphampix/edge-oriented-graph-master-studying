@@ -1,0 +1,3720 @@
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  322
+  Documents: 9    
+  Words: 1017 
+  Relations: 219
+	1:AFFILIATION:2	8    	ID: 3
+	1:LOCATED:2	12   	ID: 0
+	1:NR:2    	181  	ID: 2
+	1:PART – WHOLE:2	18   	ID: 1
+  Entities: 85
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	39   	ID: 4
+	ORGANIZATION	25   	ID: 5
+	PERSON    	21   	ID: 3
+  Singletons: 628/1017
+  Preparing TRAIN data - PMID 23357120: 100%|██████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 104.88it/s]
+
+Loading testing data ...
+duplicates_times >>>  235
+  Documents: 3    
+  Words: 280  
+  Relations: 121
+	1:LOCATED:2	7    	ID: 0
+	1:NR:2    	107  	ID: 2
+	1:PART – WHOLE:2	7    	ID: 1
+  Entities: 32
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	14   	ID: 4
+	ORGANIZATION	11   	ID: 5
+	PERSON    	7    	ID: 3
+  Singletons: 177/280
+  Preparing TEST data - PMID 23352027: 100%|███████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 156.64it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/tunning/vlsp_tunning_train.data
+            - Test Data         ../data/VLSP/tunning/vlsp_tunning_test.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         2
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             1
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0014
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.004477
+            - Seed              0
+            - lstm_dim          20
+            - out_dim           20
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_10:50:06 ========
+
+print(torch.cuda.max_memory_split) >>>
+64
+/home/edge-oriented-graph-master-studying/src/converter.py:51: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  arrays = numpy.asarray(arrays)
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = 1.28577, ACC = 0.4760 , MICRO P/R/F1 = 0.0256	0.0571	0.0354 | TP/ACTUAL/PRED = 2      /35     /78     , TOTAL 208     | 0h 00m 01s
+            TEST  | LOSS = 1.18657, ACC = 0.8824 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /14     /0      , TOTAL 119     | 0h 00m 00s
+
+Best epoch: 1
+            TEST  | LOSS = 1.18657, ACC = 0.8824 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /14     /0      , TOTAL 119     | 0h 00m 00s
+
+Saving errors ... DONE
+Saving predictions ... DONE
+
+======== END TRAINING: 04-05-23_10:50:08 ========
+
+
+Saving the model & the parameters ...
+Connection to 65.109.75.60 closed.
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:sh n2t2k$ cd  /Users/n2t2k/.ssh/known_hosts
+-bash: cd: /Users/n2t2k/.ssh/known_hosts: Not a directory
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:sh n2t2k$ cd  /Users/n2t2k/.ssh/
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:.ssh n2t2k$ ls
+autotracking		id_rsa.pub		k04_05_23_key		known_hosts.old		note.md
+id_rsa			id_rsa_bak_03_05_23.pub	known_hosts		my_ssh_keys
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:.ssh n2t2k$ rm known_hosts
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:.ssh n2t2k$ 
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:.ssh n2t2k$ 
+(gps-portal-env-2.7.18) N2T2ks-MacBook-Pro:.ssh n2t2k$  . ~/global/pyenv/run_all_eog.sh 
+pyenv-virtualenv: prompt changing will be removed from future release. configure `export PYENV_VIRTUALENV_DISABLE_PROMPT=1' to simulate the behavior.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:src n2t2k$ cd ../sh/
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ kls
+-bash: kls: command not found
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ ls
+copy_to_server.sh		gen_key.sh			local_stay_login_run_train.sh	ssh_stay_login.sh
+download_result_unzip.sh	init_env.sh			login_run_train.sh		vlsp_100_copy_to_server.sh
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh vlsp_100_copy_to_server.sh 
+building file list ... done
+created directory /home/edge-oriented-graph-master-studying/data/VLSP/processed
+processed/
+processed/vlsp_processed_dev_180_date_30_04.data
+processed/vlsp_processed_train_340_date_30_04.data
+
+sent 1978099 bytes  received 70 bytes  263755.87 bytes/sec
+total size is 39641080  speedup is 20.04
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh 
+.env                           gen_key.sh                     login_run_train.sh             
+copy_to_server.sh              init_env.sh                    ssh_stay_login.sh              
+download_result_unzip.sh       local_stay_login_run_train.sh  vlsp_100_copy_to_server.sh     
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  322
+  Documents: 9    
+  Words: 1017 
+  Relations: 219
+	1:AFFILIATION:2	8    	ID: 3
+	1:LOCATED:2	12   	ID: 0
+	1:NR:2    	181  	ID: 2
+	1:PART – WHOLE:2	18   	ID: 1
+  Entities: 85
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	39   	ID: 4
+	ORGANIZATION	25   	ID: 5
+	PERSON    	21   	ID: 3
+  Singletons: 628/1017
+  Preparing TRAIN data - PMID 23357120: 100%|████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 68.88it/s]
+
+Loading testing data ...
+duplicates_times >>>  235
+  Documents: 3    
+  Words: 280  
+  Relations: 121
+	1:LOCATED:2	7    	ID: 0
+	1:NR:2    	107  	ID: 2
+	1:PART – WHOLE:2	7    	ID: 1
+  Entities: 32
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	14   	ID: 4
+	ORGANIZATION	11   	ID: 5
+	PERSON    	7    	ID: 3
+  Singletons: 177/280
+  Preparing TEST data - PMID 23352027: 100%|████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 110.04it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/tunning/vlsp_tunning_train.data
+            - Test Data         ../data/VLSP/tunning/vlsp_tunning_test.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         2
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             1
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0014
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0044
+            - Seed              0
+            - lstm_dim          20
+            - out_dim           20
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:02:36 ========
+
+print(torch.cuda.max_memory_split) >>>
+64
+/home/edge-oriented-graph-master-studying/src/converter.py:51: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  arrays = numpy.asarray(arrays)
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+^CTraceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 301, in forward
+    encoded_seq = self.encoding_layer(word_vec, batch['word_sec'])
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 27, in encoding_layer
+    ys = self.encoder(torch.split(word_vec, word_sec.tolist(), dim=0), word_sec)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/modules.py", line 140, in forward
+    out_packed, _ = self.enc(packed, hidden)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/rnn.py", line 777, in forward
+    result = _VF.lstm(input, batch_sizes, hx, self._flat_weights, self.bias,
+  File "/usr/local/lib/python3.8/dist-packages/torch/fx/traceback.py", line 51, in format_stack
+    @compatibility(is_backward_compatible=False)
+KeyboardInterrupt
+^CConnection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/
+configs/parameters_cdr.yaml
+configs/parameters_cdr_BAK_ORG.yaml
+configs/parameters_cdr_low_mem.yaml
+configs/parameters_gda.yaml
+src/
+src/__init__.py
+src/converter.py
+src/dataset.py
+src/eog.py
+src/loader.py
+src/reader.py
+src/run.sh
+src/utils.py
+src/bin/
+src/bin/run.sh
+src/nnet/
+src/nnet/__init__.py
+src/nnet/attention.py
+src/nnet/init_net.py
+src/nnet/modules.py
+src/nnet/network.py
+src/nnet/trainer.py
+src/nnet/walks.py
+
+sent 2642 bytes  received 1414 bytes  901.33 bytes/sec
+total size is 103309  speedup is 25.47
+building file list ... done
+tunning/
+tunning/vlsp_tunning_test.data
+tunning/vlsp_tunning_train.data
+
+sent 18717 bytes  received 70 bytes  3415.82 bytes/sec
+total size is 183234  speedup is 9.75
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh vlsp_100_copy_to_server.sh 
+building file list ... done
+
+sent 170 bytes  received 20 bytes  42.22 bytes/sec
+total size is 39641080  speedup is 208637.26
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:30<00:00, 11.20it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:13<00:00, 12.94it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         2
+            - Walks iteration   3 -> Length = 8
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.003
+            - Seed              0
+            - lstm_dim          100
+            - out_dim           100
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:04:26 ========
+
+print(torch.cuda.max_memory_split) >>>
+64
+/home/edge-oriented-graph-master-studying/src/converter.py:51: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  arrays = numpy.asarray(arrays)
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 58, in mask_invalid_paths
+    graph = torch.where(mask3d.unsqueeze(-1), graph, torch.as_tensor([float('-inf')]).to(graph.device))  # padded
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 64.34 GiB (GPU 0; 79.20 GiB total capacity; 69.22 GiB already allocated; 7.88 GiB free; 70.73 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+src/eog.py
+
+sent 1288 bytes  received 106 bytes  309.78 bytes/sec
+total size is 103311  speedup is 74.11
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 83, in main
+    print(torch.cuda.max_memory_split)
+AttributeError: module 'torch.cuda' has no attribute 'max_memory_split'
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+src/eog.py
+src/nnet/trainer.py
+
+sent 1209 bytes  received 250 bytes  265.27 bytes/sec
+total size is 103319  speedup is 70.81
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:31<00:00, 10.96it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.46it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         2
+            - Walks iteration   2 -> Length = 4
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          100
+            - out_dim           100
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:07:56 ========
+
+/home/edge-oriented-graph-master-studying/src/converter.py:51: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  arrays = numpy.asarray(arrays)
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 58, in mask_invalid_paths
+    graph = torch.where(mask3d.unsqueeze(-1), graph, torch.as_tensor([float('-inf')]).to(graph.device))  # padded
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 64.34 GiB (GPU 0; 79.20 GiB total capacity; 69.21 GiB already allocated; 7.92 GiB free; 70.70 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1010 bytes  received 60 bytes  237.78 bytes/sec
+total size is 103317  speedup is 96.56
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:30<00:00, 10.99it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.75it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         2
+            - Walks iteration   2 -> Length = 4
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          75
+            - out_dim           75
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:10:06 ========
+
+/home/edge-oriented-graph-master-studying/src/converter.py:51: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  arrays = numpy.asarray(arrays)
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 58, in mask_invalid_paths
+    graph = torch.where(mask3d.unsqueeze(-1), graph, torch.as_tensor([float('-inf')]).to(graph.device))  # padded
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 48.25 GiB (GPU 0; 79.20 GiB total capacity; 52.30 GiB already allocated; 23.63 GiB free; 54.98 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:30<00:00, 11.02it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:13<00:00, 12.94it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         2
+            - Walks iteration   2 -> Length = 4
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          75
+            - out_dim           75
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:11:34 ========
+
+/home/edge-oriented-graph-master-studying/src/converter.py:51: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  arrays = numpy.asarray(arrays)
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 58, in mask_invalid_paths
+    graph = torch.where(mask3d.unsqueeze(-1), graph, torch.as_tensor([float('-inf')]).to(graph.device))  # padded
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 48.25 GiB (GPU 0; 79.20 GiB total capacity; 52.30 GiB already allocated; 23.63 GiB free; 54.98 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:31<00:00, 10.90it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.74it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         2
+            - Walks iteration   2 -> Length = 4
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          75
+            - out_dim           75
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:13:10 ========
+
+/home/edge-oriented-graph-master-studying/src/converter.py:51: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  arrays = numpy.asarray(arrays)
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 58, in mask_invalid_paths
+    graph = torch.where(mask3d.unsqueeze(-1), graph, torch.as_tensor([float('-inf')]).to(graph.device))  # padded
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 48.25 GiB (GPU 0; 79.20 GiB total capacity; 52.30 GiB already allocated; 23.63 GiB free; 54.98 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1009 bytes  received 60 bytes  194.36 bytes/sec
+total size is 103320  speedup is 96.65
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:30<00:00, 11.00it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:13<00:00, 12.96it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   2 -> Length = 4
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0025
+            - Seed              0
+            - lstm_dim          100
+            - out_dim           100
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:14:39 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 59, in mask_invalid_paths
+    graph = torch.where(torch.eq(graph, 0.0).all(dim=4, keepdim=True),
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.17 GiB (GPU 0; 79.20 GiB total capacity; 66.94 GiB already allocated; 11.07 GiB free; 67.55 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+^C
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1009 bytes  received 60 bytes  194.36 bytes/sec
+total size is 103318  speedup is 96.65
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:19<00:00, 17.66it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:08<00:00, 21.99it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   2 -> Length = 4
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0025
+            - Seed              0
+            - lstm_dim          80
+            - out_dim           80
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:16:41 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 59, in mask_invalid_paths
+    graph = torch.where(torch.eq(graph, 0.0).all(dim=4, keepdim=True),
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 25.74 GiB (GPU 0; 79.20 GiB total capacity; 53.72 GiB already allocated; 24.57 GiB free; 54.04 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1010 bytes  received 60 bytes  237.78 bytes/sec
+total size is 103318  speedup is 96.56
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:31<00:00, 10.77it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.46it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   2 -> Length = 4
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0025
+            - Seed              0
+            - lstm_dim          70
+            - out_dim           70
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:18:31 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 59, in mask_invalid_paths
+    graph = torch.where(torch.eq(graph, 0.0).all(dim=4, keepdim=True),
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 22.52 GiB (GPU 0; 79.20 GiB total capacity; 69.87 GiB already allocated; 7.76 GiB free; 70.85 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1009 bytes  received 60 bytes  194.36 bytes/sec
+total size is 103318  speedup is 96.65
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:30<00:00, 11.00it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.63it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   2 -> Length = 4
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0025
+            - Seed              0
+            - lstm_dim          50
+            - out_dim           50
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:20:43 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py:197: UserWarning: Error detected in torch::autograd::CopySlices. Traceback of forward call that caused the error:
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 56, in mask_invalid_paths
+    graph[:, items, :, items] = float('-inf')  # A->*->A (self-connection)
+  File "/usr/local/lib/python3.8/dist-packages/torch/fx/traceback.py", line 57, in format_stack
+    return traceback.format_stack()
+ (Triggered internally at ../torch/csrc/autograd/python_anomaly_mode.cpp:114.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 182, in train_epoch
+    loss.backward()          # backward computation
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 488, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py", line 197, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.09 GiB (GPU 0; 79.20 GiB total capacity; 66.18 GiB already allocated; 11.72 GiB free; 66.89 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1008 bytes  received 60 bytes  194.18 bytes/sec
+total size is 103317  speedup is 96.74
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:31<00:00, 10.86it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.56it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   2 -> Length = 4
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          50
+            - out_dim           50
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:22:58 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py:197: UserWarning: Error detected in torch::autograd::CopySlices. Traceback of forward call that caused the error:
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 56, in mask_invalid_paths
+    graph[:, items, :, items] = float('-inf')  # A->*->A (self-connection)
+  File "/usr/local/lib/python3.8/dist-packages/torch/fx/traceback.py", line 57, in format_stack
+    return traceback.format_stack()
+ (Triggered internally at ../torch/csrc/autograd/python_anomaly_mode.cpp:114.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 182, in train_epoch
+    loss.backward()          # backward computation
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 488, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py", line 197, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.09 GiB (GPU 0; 79.20 GiB total capacity; 66.18 GiB already allocated; 11.72 GiB free; 66.89 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1008 bytes  received 60 bytes  237.33 bytes/sec
+total size is 103317  speedup is 96.74
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:17<00:00, 18.92it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:08<00:00, 21.90it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          50
+            - out_dim           50
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:25:10 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9055 , MICRO P/R/F1 = 0.0526	0.0038	0.0071 | TP/ACTUAL/PRED = 8      /2097   /152    , TOTAL 23624   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py:197: UserWarning: Error detected in torch::autograd::CopySlices. Traceback of forward call that caused the error:
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 56, in mask_invalid_paths
+    graph[:, items, :, items] = float('-inf')  # A->*->A (self-connection)
+  File "/usr/local/lib/python3.8/dist-packages/torch/fx/traceback.py", line 57, in format_stack
+    return traceback.format_stack()
+ (Triggered internally at ../torch/csrc/autograd/python_anomaly_mode.cpp:114.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 182, in train_epoch
+    loss.backward()          # backward computation
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 488, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py", line 197, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.09 GiB (GPU 0; 79.20 GiB total capacity; 49.83 GiB already allocated; 12.78 GiB free; 65.83 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1009 bytes  received 60 bytes  237.56 bytes/sec
+total size is 103317  speedup is 96.65
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:31<00:00, 10.96it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.68it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          40
+            - out_dim           40
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:27:19 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9057 , MICRO P/R/F1 = 0.1299	0.0110	0.0202 | TP/ACTUAL/PRED = 23     /2097   /177    , TOTAL 23618   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Epoch: 02 | TRAIN | LOSS = nan, ACC = 0.9111 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /2097   /0      , TOTAL 23591   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Best epoch: 2
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Saving errors ... DONE
+Saving predictions ... DONE
+
+======== END TRAINING: 04-05-23_11:28:17 ========
+
+
+Saving the model & the parameters ...
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+^C
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+src/eog.py
+
+sent 1288 bytes  received 106 bytes  309.78 bytes/sec
+total size is 103312  speedup is 74.11
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:31<00:00, 10.90it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:13<00:00, 12.81it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0023
+            - Seed              0
+            - lstm_dim          50
+            - out_dim           50
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:30:31 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9063 , MICRO P/R/F1 = 0.0543	0.0033	0.0063 | TP/ACTUAL/PRED = 7      /2097   /129    , TOTAL 23619   | 0h 00m 26s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py:197: UserWarning: Error detected in torch::autograd::CopySlices. Traceback of forward call that caused the error:
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 56, in mask_invalid_paths
+    graph[:, items, :, items] = float('-inf')  # A->*->A (self-connection)
+  File "/usr/local/lib/python3.8/dist-packages/torch/fx/traceback.py", line 57, in format_stack
+    return traceback.format_stack()
+ (Triggered internally at ../torch/csrc/autograd/python_anomaly_mode.cpp:114.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 182, in train_epoch
+    loss.backward()          # backward computation
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 488, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py", line 197, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.09 GiB (GPU 0; 79.20 GiB total capacity; 49.83 GiB already allocated; 12.78 GiB free; 65.83 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1009 bytes  received 60 bytes  194.36 bytes/sec
+total size is 103311  speedup is 96.64
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:30<00:00, 11.06it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.71it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          45
+            - out_dim           45
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:32:54 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9025 , MICRO P/R/F1 = 0.0094	0.0010	0.0017 | TP/ACTUAL/PRED = 2      /2097   /212    , TOTAL 23643   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Epoch: 02 | TRAIN | LOSS = nan, ACC = 0.9111 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /2097   /0      , TOTAL 23591   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Best epoch: 2
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Saving errors ... DONE
+Saving predictions ... DONE
+
+======== END TRAINING: 04-05-23_11:33:54 ========
+
+
+Saving the model & the parameters ...
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+^C^C^CTraceback (most recent call last):
+  File "eog.py", line 9, in <module>
+    import torch
+  File "/usr/local/lib/python3.8/dist-packages/torch/__init__.py", line 218, in <module>
+    from torch._C import *  # noqa: F403
+RuntimeError: KeyboardInterrupt: <EMPTY MESSAGE>
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1010 bytes  received 60 bytes  237.78 bytes/sec
+total size is 103312  speedup is 96.55
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:31<00:00, 10.89it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.68it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0022
+            - Seed              0
+            - lstm_dim          45
+            - out_dim           45
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:35:36 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9032 , MICRO P/R/F1 = 0.0103	0.0010	0.0017 | TP/ACTUAL/PRED = 2      /2097   /194    , TOTAL 23638   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Epoch: 02 | TRAIN | LOSS = nan, ACC = 0.9111 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /2097   /0      , TOTAL 23591   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Best epoch: 2
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Saving errors ... DONE
+Saving predictions ... DONE
+
+======== END TRAINING: 04-05-23_11:36:36 ========
+
+
+Saving the model & the parameters ...
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23351430:   4%|██▊                                                              | 15/340 [00:01<00:24, 13.29it/s]  Preparing TRAIN data - PMID 23351430:   4%|██▊                                                              | 15/340 [00:01<00:33,  9.62it/s]
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 39, in train
+    train_data = DocRelationDataset(train_loader, 'train', parameters, train_loader).__call__()
+  File "/home/edge-oriented-graph-master-studying/src/dataset.py", line 176, in __call__
+    if nodes[x, 5] == 0 and nodes[y, 5] == 2:  # this is an entity-sentence edge
+KeyboardInterrupt
+^CConnection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1011 bytes  received 60 bytes  238.00 bytes/sec
+total size is 103312  speedup is 96.46
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:30<00:00, 11.06it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:13<00:00, 12.81it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0022
+            - Seed              0
+            - lstm_dim          47
+            - out_dim           47
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:38:19 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9102 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /2097   /22     , TOTAL 23600   | 0h 00m 26s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Epoch: 02 | TRAIN | LOSS = nan, ACC = 0.9111 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /2097   /0      , TOTAL 23591   | 0h 00m 27s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Best epoch: 2
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Saving errors ... DONE
+Saving predictions ... DONE
+
+======== END TRAINING: 04-05-23_11:39:21 ========
+
+
+Saving the model & the parameters ...
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1010 bytes  received 60 bytes  194.55 bytes/sec
+total size is 103312  speedup is 96.55
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:30<00:00, 11.04it/s]
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.59it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0022
+            - Seed              0
+            - lstm_dim          48
+            - out_dim           48
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:40:59 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9099 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /2097   /29     , TOTAL 23598   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Epoch: 02 | TRAIN | LOSS = nan, ACC = 0.9111 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /2097   /0      , TOTAL 23591   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Best epoch: 2
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Saving errors ... DONE
+Saving predictions ... DONE
+
+======== END TRAINING: 04-05-23_11:41:59 ========
+
+
+Saving the model & the parameters ...
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1009 bytes  received 60 bytes  194.36 bytes/sec
+total size is 103311  speedup is 96.64
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:31<00:00, 10.89it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:13<00:00, 12.86it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          55
+            - out_dim           55
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:43:53 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9105 , MICRO P/R/F1 = 0.1500	0.0014	0.0028 | TP/ACTUAL/PRED = 3      /2097   /20     , TOTAL 23595   | 0h 00m 26s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py:197: UserWarning: Error detected in torch::autograd::CopySlices. Traceback of forward call that caused the error:
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 56, in mask_invalid_paths
+    graph[:, items, :, items] = float('-inf')  # A->*->A (self-connection)
+  File "/usr/local/lib/python3.8/dist-packages/torch/fx/traceback.py", line 57, in format_stack
+    return traceback.format_stack()
+ (Triggered internally at ../torch/csrc/autograd/python_anomaly_mode.cpp:114.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 182, in train_epoch
+    loss.backward()          # backward computation
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 488, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py", line 197, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 17.69 GiB (GPU 0; 79.20 GiB total capacity; 54.74 GiB already allocated; 6.32 GiB free; 72.29 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1009 bytes  received 60 bytes  194.36 bytes/sec
+total size is 103311  speedup is 96.64
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:30<00:00, 11.13it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.63it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          52
+            - out_dim           52
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:46:07 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9040 , MICRO P/R/F1 = 0.0991	0.0100	0.0182 | TP/ACTUAL/PRED = 21     /2097   /212    , TOTAL 23620   | 0h 00m 26s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py:197: UserWarning: Error detected in torch::autograd::CopySlices. Traceback of forward call that caused the error:
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 56, in mask_invalid_paths
+    graph[:, items, :, items] = float('-inf')  # A->*->A (self-connection)
+  File "/usr/local/lib/python3.8/dist-packages/torch/fx/traceback.py", line 57, in format_stack
+    return traceback.format_stack()
+ (Triggered internally at ../torch/csrc/autograd/python_anomaly_mode.cpp:114.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 182, in train_epoch
+    loss.backward()          # backward computation
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 488, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py", line 197, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.73 GiB (GPU 0; 79.20 GiB total capacity; 51.79 GiB already allocated; 10.26 GiB free; 68.35 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1009 bytes  received 60 bytes  194.36 bytes/sec
+total size is 103311  speedup is 96.64
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+
+sent 591 bytes  received 20 bytes  111.09 bytes/sec
+total size is 103311  speedup is 169.09
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+configs/parameters_cdr_BAK_ORG.yaml
+
+sent 1050 bytes  received 94 bytes  254.22 bytes/sec
+total size is 103311  speedup is 90.31
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:31<00:00, 10.91it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.74it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.002
+            - Seed              0
+            - lstm_dim          50
+            - out_dim           50
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:51:51 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9055 , MICRO P/R/F1 = 0.0526	0.0038	0.0071 | TP/ACTUAL/PRED = 8      /2097   /152    , TOTAL 23624   | 0h 00m 26s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py:197: UserWarning: Error detected in torch::autograd::CopySlices. Traceback of forward call that caused the error:
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 56, in mask_invalid_paths
+    graph[:, items, :, items] = float('-inf')  # A->*->A (self-connection)
+  File "/usr/local/lib/python3.8/dist-packages/torch/fx/traceback.py", line 57, in format_stack
+    return traceback.format_stack()
+ (Triggered internally at ../torch/csrc/autograd/python_anomaly_mode.cpp:114.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 182, in train_epoch
+    loss.backward()          # backward computation
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 488, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py", line 197, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.09 GiB (GPU 0; 79.20 GiB total capacity; 49.83 GiB already allocated; 12.78 GiB free; 65.83 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_gda.yaml
+
+sent 1033 bytes  received 54 bytes  241.56 bytes/sec
+total size is 103312  speedup is 95.04
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+
+sent 591 bytes  received 20 bytes  111.09 bytes/sec
+total size is 103312  speedup is 169.09
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1009 bytes  received 60 bytes  164.46 bytes/sec
+total size is 103313  speedup is 96.64
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:31<00:00, 10.97it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.47it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             2
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0018
+            - Seed              0
+            - lstm_dim          50
+            - out_dim           50
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:55:06 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9049 , MICRO P/R/F1 = 0.0533	0.0043	0.0079 | TP/ACTUAL/PRED = 9      /2097   /169    , TOTAL 23626   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py:197: UserWarning: Error detected in torch::autograd::CopySlices. Traceback of forward call that caused the error:
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 181, in train_epoch
+    loss, stats, predictions, select = self.model(batch)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/network.py", line 309, in forward
+    graph = self.walk(graph, adj_=batch['adjacency'], mask_=mask)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 93, in forward
+    graph = self.mask_invalid_paths(graph, mask_)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/walks.py", line 56, in mask_invalid_paths
+    graph[:, items, :, items] = float('-inf')  # A->*->A (self-connection)
+  File "/usr/local/lib/python3.8/dist-packages/torch/fx/traceback.py", line 57, in format_stack
+    return traceback.format_stack()
+ (Triggered internally at ../torch/csrc/autograd/python_anomaly_mode.cpp:114.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 50, in train
+    trainer.run()
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 143, in run
+    self.train_epoch(epoch)
+  File "/home/edge-oriented-graph-master-studying/src/nnet/trainer.py", line 182, in train_epoch
+    loss.backward()          # backward computation
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 488, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py", line 197, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.09 GiB (GPU 0; 79.20 GiB total capacity; 49.83 GiB already allocated; 12.78 GiB free; 65.83 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23352748:  42%|███████████████████████████                                     | 144/340 [00:10<00:17, 11.02it/s]  Preparing TRAIN data - PMID 23352748:  42%|███████████████████████████                                     | 144/340 [00:10<00:14, 13.77it/s]
+Traceback (most recent call last):
+  File "eog.py", line 97, in <module>
+    main()
+  File "eog.py", line 90, in main
+    train(parameters)
+  File "eog.py", line 39, in train
+    train_data = DocRelationDataset(train_loader, 'train', parameters, train_loader).__call__()
+  File "/home/edge-oriented-graph-master-studying/src/dataset.py", line 177, in __call__
+    z = np.where((r_Eid == nodes[x, 0]) & (r_id == 1) & (c_id == 2) & (c_Sid == nodes[y, 4]))
+  File "<__array_function__ internals>", line 5, in where
+KeyboardInterrupt
+^CConnection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+
+sent 1009 bytes  received 60 bytes  237.56 bytes/sec
+total size is 103313  speedup is 96.64
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ ls
+copy_to_server.sh				login_run_train.sh
+download_result_unzip.sh			ssh_stay_login.sh
+gen_key.sh					view_config_local_stay_login_run_train.sh
+init_env.sh					vlsp_100_copy_to_server.sh
+local_stay_login_run_train.sh
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+ 
+building file list ... done
+src/run.sh
+
+sent 705 bytes  received 48 bytes  136.91 bytes/sec
+total size is 103314  speedup is 137.20
+building file list ... done
+
+sent 136 bytes  received 20 bytes  28.36 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23366740: 100%|████████████████████████████████████████████████████████████████| 340/340 [00:30<00:00, 11.00it/s]
+
+Loading testing data ...
+duplicates_times >>>  15135
+  Documents: 179  
+  Words: 11659
+  Relations: 6327
+	1:AFFILIATION:2	350  	ID: 0
+	1:LOCATED:2	293  	ID: 2
+	1:NR:2    	5215 	ID: 1
+	1:PART – WHOLE:2	408  	ID: 3
+	1:PERSONAL - SOCIAL:2	61   	ID: 4
+  Entities: 2352
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	877  	ID: 5
+	ORGANIZATION	699  	ID: 3
+	PERSON    	776  	ID: 4
+  Singletons: 6187/11659
+  Preparing TEST data - PMID 23352736: 100%|█████████████████████████████████████████████████████████████████| 179/179 [00:14<00:00, 12.57it/s]
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_train_340_date_30_04.data
+            - Test Data         ../data/VLSP/processed/vlsp_processed_dev_180_date_30_04.data
+            - Embeddings        0, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         1
+            - Walks iteration   1 -> Length = 2
+            - beta              0.8
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             30
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.0001
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.3
+            - Learning rate     0.0018
+            - Seed              0
+            - lstm_dim          48
+            - out_dim           48
+            - dist_dim          10
+            - type_dim          10
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 04-05-23_11:59:43 ========
+
+/home/edge-oriented-graph-master-studying/src/nnet/trainer.py:179: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with autograd.detect_anomaly():
+/usr/local/lib/python3.8/dist-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/edge-oriented-graph-master-studying/src/nnet/walks.py:39: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:413.)
+  graph = torch.where(adj.unsqueeze(-1), graph, torch.zeros_like(graph))
+Epoch: 01 | TRAIN | LOSS = nan, ACC = 0.9098 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /2097   /32     , TOTAL 23599   | 0h 00m 26s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Epoch: 02 | TRAIN | LOSS = nan, ACC = 0.9111 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /2097   /0      , TOTAL 23591   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Epoch: 03 | TRAIN | LOSS = nan, ACC = 0.9111 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /2097   /0      , TOTAL 23591   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Epoch: 04 | TRAIN | LOSS = nan, ACC = 0.9108 , MICRO P/R/F1 = 0.3333	0.0038	0.0075 | TP/ACTUAL/PRED = 8      /2097   /24     , TOTAL 23604   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Epoch: 05 | TRAIN | LOSS = nan, ACC = 0.9095 , MICRO P/R/F1 = 0.3810	0.0343	0.0630 | TP/ACTUAL/PRED = 72     /2097   /189    , TOTAL 23658   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Epoch: 06 | TRAIN | LOSS = nan, ACC = 0.9083 , MICRO P/R/F1 = 0.3923	0.0677	0.1155 | TP/ACTUAL/PRED = 142    /2097   /362    , TOTAL 23716   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 03s
+
+Epoch: 07 | TRAIN | LOSS = nan, ACC = 0.9103 , MICRO P/R/F1 = 0.4745	0.1373	0.2130 | TP/ACTUAL/PRED = 288    /2097   /607    , TOTAL 23730   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Epoch: 08 | TRAIN | LOSS = nan, ACC = 0.9077 , MICRO P/R/F1 = 0.4463	0.1903	0.2668 | TP/ACTUAL/PRED = 399    /2097   /894    , TOTAL 23761   | 0h 00m 23s
+            TEST  | LOSS = nan, ACC = 0.8171 , MICRO P/R/F1 = 0.6667	0.0020	0.0040 | TP/ACTUAL/PRED = 2      /998    /3      , TOTAL 5452    | 0h 00m 02s
+
+Epoch: 09 | TRAIN | LOSS = nan, ACC = 0.9139 , MICRO P/R/F1 = 0.5296	0.2175	0.3083 | TP/ACTUAL/PRED = 456    /2097   /861    , TOTAL 23769   | 0h 00m 26s
+            TEST  | LOSS = nan, ACC = 0.8171 , MICRO P/R/F1 = 0.5000	0.0070	0.0138 | TP/ACTUAL/PRED = 7      /998    /14     , TOTAL 5456    | 0h 00m 02s
+
+Epoch: 10 | TRAIN | LOSS = nan, ACC = 0.9149 , MICRO P/R/F1 = 0.5367	0.2580	0.3485 | TP/ACTUAL/PRED = 541    /2097   /1008   , TOTAL 23772   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8174 , MICRO P/R/F1 = 0.5200	0.0130	0.0254 | TP/ACTUAL/PRED = 13     /998    /25     , TOTAL 5460    | 0h 00m 03s
+
+Epoch: 11 | TRAIN | LOSS = nan, ACC = 0.9157 , MICRO P/R/F1 = 0.5467	0.2623	0.3545 | TP/ACTUAL/PRED = 550    /2097   /1006   , TOTAL 23766   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8179 , MICRO P/R/F1 = 0.5349	0.0230	0.0442 | TP/ACTUAL/PRED = 23     /998    /43     , TOTAL 5463    | 0h 00m 02s
+
+Epoch: 12 | TRAIN | LOSS = nan, ACC = 0.9181 , MICRO P/R/F1 = 0.5670	0.3066	0.3980 | TP/ACTUAL/PRED = 643    /2097   /1134   , TOTAL 23762   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8191 , MICRO P/R/F1 = 0.5893	0.0331	0.0626 | TP/ACTUAL/PRED = 33     /998    /56     , TOTAL 5463    | 0h 00m 02s
+
+Epoch: 13 | TRAIN | LOSS = nan, ACC = 0.9186 , MICRO P/R/F1 = 0.5651	0.3352	0.4208 | TP/ACTUAL/PRED = 703    /2097   /1244   , TOTAL 23777   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8207 , MICRO P/R/F1 = 0.6154	0.0481	0.0892 | TP/ACTUAL/PRED = 48     /998    /78     , TOTAL 5466    | 0h 00m 03s
+
+Epoch: 14 | TRAIN | LOSS = nan, ACC = 0.9201 , MICRO P/R/F1 = 0.5840	0.3300	0.4217 | TP/ACTUAL/PRED = 692    /2097   /1185   , TOTAL 23767   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8232 , MICRO P/R/F1 = 0.6667	0.0641	0.1170 | TP/ACTUAL/PRED = 64     /998    /96     , TOTAL 5464    | 0h 00m 03s
+
+Epoch: 15 | TRAIN | LOSS = nan, ACC = 0.9216 , MICRO P/R/F1 = 0.5932	0.3553	0.4444 | TP/ACTUAL/PRED = 745    /2097   /1256   , TOTAL 23750   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8271 , MICRO P/R/F1 = 0.7328	0.0852	0.1526 | TP/ACTUAL/PRED = 85     /998    /116    , TOTAL 5461    | 0h 00m 02s
+
+Epoch: 16 | TRAIN | LOSS = nan, ACC = 0.9266 , MICRO P/R/F1 = 0.6346	0.4001	0.4908 | TP/ACTUAL/PRED = 839    /2097   /1322   , TOTAL 23719   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8295 , MICRO P/R/F1 = 0.7376	0.1042	0.1826 | TP/ACTUAL/PRED = 104    /998    /141    , TOTAL 5461    | 0h 00m 03s
+
+Epoch: 17 | TRAIN | LOSS = nan, ACC = 0.9255 , MICRO P/R/F1 = 0.6263	0.3901	0.4808 | TP/ACTUAL/PRED = 818    /2097   /1306   , TOTAL 23724   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8306 , MICRO P/R/F1 = 0.7296	0.1162	0.2005 | TP/ACTUAL/PRED = 116    /998    /159    , TOTAL 5462    | 0h 00m 03s
+
+Epoch: 18 | TRAIN | LOSS = nan, ACC = 0.9233 , MICRO P/R/F1 = 0.5977	0.3996	0.4790 | TP/ACTUAL/PRED = 838    /2097   /1402   , TOTAL 23760   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8326 , MICRO P/R/F1 = 0.7360	0.1313	0.2228 | TP/ACTUAL/PRED = 131    /998    /178    , TOTAL 5461    | 0h 00m 02s
+
+Epoch: 19 | TRAIN | LOSS = nan, ACC = 0.9272 , MICRO P/R/F1 = 0.6352	0.4134	0.5009 | TP/ACTUAL/PRED = 867    /2097   /1365   , TOTAL 23731   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8338 , MICRO P/R/F1 = 0.7368	0.1403	0.2357 | TP/ACTUAL/PRED = 140    /998    /190    , TOTAL 5462    | 0h 00m 02s
+
+Epoch: 20 | TRAIN | LOSS = nan, ACC = 0.9288 , MICRO P/R/F1 = 0.6520	0.4163	0.5081 | TP/ACTUAL/PRED = 873    /2097   /1339   , TOTAL 23721   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8344 , MICRO P/R/F1 = 0.7246	0.1503	0.2490 | TP/ACTUAL/PRED = 150    /998    /207    , TOTAL 5465    | 0h 00m 02s
+
+Epoch: 21 | TRAIN | LOSS = nan, ACC = 0.9280 , MICRO P/R/F1 = 0.6388	0.4292	0.5134 | TP/ACTUAL/PRED = 900    /2097   /1409   , TOTAL 23710   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8343 , MICRO P/R/F1 = 0.7018	0.1603	0.2610 | TP/ACTUAL/PRED = 160    /998    /228    , TOTAL 5469    | 0h 00m 03s
+
+Epoch: 22 | TRAIN | LOSS = nan, ACC = 0.9276 , MICRO P/R/F1 = 0.6311	0.4373	0.5166 | TP/ACTUAL/PRED = 917    /2097   /1453   , TOTAL 23715   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8349 , MICRO P/R/F1 = 0.6895	0.1713	0.2745 | TP/ACTUAL/PRED = 171    /998    /248    , TOTAL 5474    | 0h 00m 02s
+
+Epoch: 23 | TRAIN | LOSS = nan, ACC = 0.9273 , MICRO P/R/F1 = 0.6251	0.4444	0.5195 | TP/ACTUAL/PRED = 932    /2097   /1491   , TOTAL 23725   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8353 , MICRO P/R/F1 = 0.6846	0.1784	0.2830 | TP/ACTUAL/PRED = 178    /998    /260    , TOTAL 5476    | 0h 00m 02s
+
+Epoch: 24 | TRAIN | LOSS = nan, ACC = 0.9282 , MICRO P/R/F1 = 0.6344	0.4444	0.5227 | TP/ACTUAL/PRED = 932    /2097   /1469   , TOTAL 23711   | 0h 00m 23s
+            TEST  | LOSS = nan, ACC = 0.8360 , MICRO P/R/F1 = 0.6799	0.1894	0.2962 | TP/ACTUAL/PRED = 189    /998    /278    , TOTAL 5476    | 0h 00m 02s
+
+Epoch: 25 | TRAIN | LOSS = nan, ACC = 0.9306 , MICRO P/R/F1 = 0.6574	0.4492	0.5337 | TP/ACTUAL/PRED = 942    /2097   /1433   , TOTAL 23720   | 0h 00m 23s
+            TEST  | LOSS = nan, ACC = 0.8357 , MICRO P/R/F1 = 0.6655	0.1974	0.3045 | TP/ACTUAL/PRED = 197    /998    /296    , TOTAL 5477    | 0h 00m 03s
+
+Epoch: 26 | TRAIN | LOSS = nan, ACC = 0.9314 , MICRO P/R/F1 = 0.6590	0.4645	0.5449 | TP/ACTUAL/PRED = 974    /2097   /1478   , TOTAL 23713   | 0h 00m 24s
+            TEST  | LOSS = nan, ACC = 0.8364 , MICRO P/R/F1 = 0.6635	0.2074	0.3160 | TP/ACTUAL/PRED = 207    /998    /312    , TOTAL 5478    | 0h 00m 03s
+
+Epoch: 27 | TRAIN | LOSS = nan, ACC = 0.9263 , MICRO P/R/F1 = 0.6115	0.4526	0.5201 | TP/ACTUAL/PRED = 949    /2097   /1552   , TOTAL 23744   | 0h 00m 23s
+            TEST  | LOSS = nan, ACC = 0.8367 , MICRO P/R/F1 = 0.6575	0.2154	0.3245 | TP/ACTUAL/PRED = 215    /998    /327    , TOTAL 5481    | 0h 00m 02s
+
+Epoch: 28 | TRAIN | LOSS = nan, ACC = 0.9311 , MICRO P/R/F1 = 0.6591	0.4564	0.5393 | TP/ACTUAL/PRED = 957    /2097   /1452   , TOTAL 23725   | 0h 00m 23s
+            TEST  | LOSS = nan, ACC = 0.8364 , MICRO P/R/F1 = 0.6481	0.2214	0.3301 | TP/ACTUAL/PRED = 221    /998    /341    , TOTAL 5483    | 0h 00m 02s
+
+Epoch: 29 | TRAIN | LOSS = nan, ACC = 0.9276 , MICRO P/R/F1 = 0.6230	0.4564	0.5268 | TP/ACTUAL/PRED = 957    /2097   /1536   , TOTAL 23732   | 0h 00m 25s
+            TEST  | LOSS = nan, ACC = 0.8366 , MICRO P/R/F1 = 0.6474	0.2244	0.3333 | TP/ACTUAL/PRED = 224    /998    /346    , TOTAL 5483    | 0h 00m 02s
+
+Epoch: 30 | TRAIN | LOSS = nan, ACC = 0.9301 , MICRO P/R/F1 = 0.6449	0.4669	0.5416 | TP/ACTUAL/PRED = 979    /2097   /1518   , TOTAL 23695   | 0h 00m 26s
+            TEST  | LOSS = nan, ACC = 0.8363 , MICRO P/R/F1 = 0.6397	0.2295	0.3378 | TP/ACTUAL/PRED = 229    /998    /358    , TOTAL 5485    | 0h 00m 02s
+
+Best epoch: 7
+            TEST  | LOSS = nan, ACC = 0.8169 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /998    /0      , TOTAL 5452    | 0h 00m 02s
+
+Saving errors ... DONE
+Saving predictions ... DONE
+
+======== END TRAINING: 04-05-23_12:13:44 ========
+
+
+Saving the model & the parameters ...
+Connection to 65.109.75.60 closed.
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh copy_to_server.sh 
+building file list ... done
+configs/parameters_cdr.yaml
+src/run.sh
+
+sent 1125 bytes  received 88 bytes  269.56 bytes/sec
+total size is 103313  speedup is 85.17
+building file list ... done
+
+sent 136 bytes  received 20 bytes  34.67 bytes/sec
+total size is 183234  speedup is 1174.58
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ 
+(reEnv3.7.13) N2T2ks-MacBook-Pro:sh n2t2k$ sh local_stay_login_run_train.sh 
+torch.cuda.max_memory_split >>>
+64
+Loading training data ...
+duplicates_times >>>  59523
+  Documents: 340  
+  Words: 20317
+  Relations: 27982
+	1:AFFILIATION:2	648  	ID: 0
+	1:LOCATED:2	552  	ID: 1
+	1:NR:2    	25682	ID: 2
+	1:PART – WHOLE:2	1020 	ID: 3
+	1:PERSONAL - SOCIAL:2	80   	ID: 4
+  Entities: 4527
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	2020 	ID: 5
+	ORGANIZATION	1334 	ID: 3
+	PERSON    	1173 	ID: 4
+  Singletons: 10908/20317
+  Preparing TRAIN data - PMID 23357809:  98%|████████████████████████████████████████████████████████████████████████████████████████████████▋  | 332/340 [00:30<00:00, 19.78it/s]

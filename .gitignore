@@ -5,6 +5,8 @@ data/GDA/
 data/VLSP/dummy
 data/VLSP/processed
 
+sh/.env
+
 results/*
 /dataProcessingOfficialCleaned/**/*.txt
 /dataProcessingOfficialCleaned/**/*.tsv

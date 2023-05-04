@@ -1,6 +1,10 @@
 *.pyc
 *.idea
-data/*
+data/CDR/
+data/GDA/
+data/VLSP/dummy
+data/VLSP/processed
+
 results/*
 /dataProcessingOfficialCleaned/**/*.txt
 /dataProcessingOfficialCleaned/**/*.tsv

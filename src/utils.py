@@ -294,6 +294,11 @@ def print_options(params):
             - Dropout I/O       {}/{}
             - Learning rate     {}
             - Seed              {}
+            - lstm_dim          {}
+            - out_dim           {}
+            - dist_dim          {}
+            - type_dim          {}
+            
             '''.format(params['train_data'], params['test_data'], params['embeds'], params['freeze_words'],
                        params['folder'],
                        params['batch'],
@@ -302,4 +307,10 @@ def print_options(params):
                        params['window'], params['epoch'],
                        params['unk_w_prob'], params['param_avg'],
                        params['early_stop'], params['patience'],
-                       params['reg'], params['gc'], params['drop_i'], params['drop_o'], params['lr'], params['seed']))
+                       params['reg'], params['gc'], params['drop_i'], params['drop_o'], params['lr'], params['seed'],
+                       params['lstm_dim'],
+                       params['out_dim'],
+                       params['dist_dim'],
+                       params['type_dim'],
+                       ))
+

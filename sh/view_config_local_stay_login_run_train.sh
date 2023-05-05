@@ -11,7 +11,10 @@ command_to_run=""
 # Login to remote server and run command
 ssh -t "$remote_user"@"$remote_host" "cd /home/edge-oriented-graph-master-studying/src && 
             cat /home/edge-oriented-graph-master-studying/configs/parameters_cdr.yaml
+            echo -e '\n'
+            echo -e '------------'
             cat /home/edge-oriented-graph-master-studying/src/run.sh
-
+            echo -e '\n'
+            echo -e '------------'
         "  
 

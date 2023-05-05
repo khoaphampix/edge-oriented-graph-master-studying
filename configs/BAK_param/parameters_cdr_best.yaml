@@ -60,22 +60,19 @@ batch: 1
 epoch: 50
 bilstm_layers: 1
 word_dim: 200
-
+lstm_dim: 40
+out_dim: 40
 type_dim: 10
+beta: 0.7
 dist_dim: 10
 drop_i: 0.5
 drop_m: 0.0
 drop_o: 0.3
+lr: 0.0025
 gc: 10
 reg: 0.0001
 opt: adam
 patience: 10
 unk_w_prob: 0.5
 min_w_freq: 1
-
-# ------------------------------
-beta: 0.68
-lr: 0.0027
-lstm_dim: 40
-out_dim: 40
 walks_iter: 2

@@ -76,11 +76,11 @@ def main():
 
 
     # Set the max_split_size_mb value to 512 MB
-    torch.cuda.max_memory_split = 64
+    # torch.cuda.max_memory_split = 64
 
-    # Check the value
-    print("torch.cuda.max_memory_split >>>")
-    print(torch.cuda.max_memory_split)
+    # # Check the value
+    # print("torch.cuda.max_memory_split >>>")
+    # print(torch.cuda.max_memory_split)
     # return
 
     config = ConfigLoader()

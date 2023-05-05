@@ -10,6 +10,27 @@ save_pred: test
 
 
 
+# network
+batch: 1
+epoch: 50
+bilstm_layers: 1
+word_dim: 100
+lstm_dim: 40
+out_dim: 40
+type_dim: 10
+beta: 0.8
+dist_dim: 10
+drop_i: 0.5
+drop_m: 0.0
+drop_o: 0.3
+lr: 0.0018
+gc: 10
+reg: 0.0001
+opt: adam
+patience: 10
+unk_w_prob: 0.5
+min_w_freq: 1
+walks_iter: 2
 
 
 
@@ -34,6 +55,10 @@ label2ignore: 1:NR:2 # need to label data in VLSP
 primary_metric: micro_f
 direction: l2r+r2l
 
+## origin data
+# include_pairs: ['Chemical-Disease', 'Chemical-Chemical', 'Disease-Disease', 'Disease-Chemical']
+# classify_pairs: ['Chemical-Disease']
+
 # # vlsp data
 include_pairs: ['LOCATION-LOCATION', 'LOCATION-PERSON', 'LOCATION-ORGANIZATION', 'PERSON-LOCATION', 'PERSON-PERSON', 'PERSON-ORGANIZATION', 'ORGANIZATION-LOCATION', 'ORGANIZATION-PERSON', 'ORGANIZATION-ORGANIZATION']
 classify_pairs: ['PERSON-LOCATION', 'ORGANIZATION-LOCATION', 'LOCATION-LOCATION', 'ORGANIZATION-ORGANIZATION', 'PERSON-PERSON', 'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION']
@@ -54,28 +79,3 @@ window:
 #     # 4 AFFILIATION
 #     'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION' #PERSON-LOCATION, 'ORGANIZATION-ORGANIZATION'\]
 # ]
-
-# network
-batch: 1
-epoch: 50
-bilstm_layers: 1
-word_dim: 200
-
-type_dim: 10
-dist_dim: 10
-drop_i: 0.5
-drop_m: 0.0
-drop_o: 0.3
-gc: 10
-reg: 0.0001
-opt: adam
-patience: 10
-unk_w_prob: 0.5
-min_w_freq: 1
-
-# ------------------------------
-beta: 0.68
-lr: 0.0027
-lstm_dim: 40
-out_dim: 40
-walks_iter: 2

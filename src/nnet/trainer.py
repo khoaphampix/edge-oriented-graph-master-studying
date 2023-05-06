@@ -9,7 +9,7 @@ author: fenia
 import torch
 import numpy as np
 import os
-from time import time
+from time import time, sleep
 import itertools
 import copy
 import datetime
@@ -23,6 +23,14 @@ from torch import nn, optim
 import sys
 torch.set_printoptions(profile="full")
 np.set_printoptions(threshold=np.inf)
+
+
+def time_diff(seconds) -> str:
+    # seconds = seconds.total_seconds()
+    hours = int(seconds // 3600)
+    minutes = int((seconds % 3600) // 60)
+    seconds = int(seconds % 60)
+    return f"{hours} hours {minutes} minutes {seconds} seconds"
 
 
 class Trainer:
@@ -132,9 +140,16 @@ class Trainer:
         """
         Main Training Loop.
         """
+        start_traing_time = datetime.datetime.now()
         print('\n======== START TRAINING: {} ========\n'.format(
-            datetime.datetime.now().strftime("%d-%m-%y_%H:%M:%S")))
-        
+            start_traing_time.strftime("%d-%m-%y_%H:%M:%S")))
+        train_time = 0.434*self.epoch
+        train_time = 0.434*80
+
+        new_time = start_traing_time + datetime.timedelta(minutes=int(train_time))
+        end_expect = new_time.strftime('%Y-%m-%d %H:%M:%S')
+        print(f"END time_expect: {end_expect}\n")
+
         # print("print(torch.cuda.max_memory_split) >>>")    
         # print(torch.cuda.max_memory_split)
 
@@ -159,8 +174,17 @@ class Trainer:
             self.parameter_averaging(epoch=self.best_epoch)
         self.eval_epoch(final=True, save_predictions=True)
 
+        # sleep(1.5*60)
+        end_traing_time = datetime.datetime.now()
         print('\n======== END TRAINING: {} ========\n'.format(
-            datetime.datetime.now().strftime("%d-%m-%y_%H:%M:%S")))
+             end_traing_time.strftime("%d-%m-%y_%H:%M:%S")))
+        diff = end_traing_time - start_traing_time
+        seconds = diff.total_seconds()
+        training_time = time_diff(seconds)
+        print(f"training time: {training_time}")
+
+        time_epoch = time_diff((seconds/self.epoch))
+        print(f"time/per_epoch: {time_epoch}")
 
     def train_epoch(self, epoch):
         """

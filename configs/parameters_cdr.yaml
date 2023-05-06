@@ -7,7 +7,8 @@ embeds: 0
 folder: ../results/vlsp-test
 save_pred: test
 
-
+# train_data: ../data/VLSP/tunning/vlsp_tunning_train.data
+# test_data:  ../data/VLSP/tunning/vlsp_tunning_test.data
 
 
 # options (chosen from parse input otherwise false)
@@ -69,8 +70,8 @@ unk_w_prob: 0.5
 min_w_freq: 1
 
 # ------------------------------
-beta: 0.7
-lr: 0.0035
-lstm_dim: 42
-out_dim: 42
-walks_iter: 1
+beta: 0.67
+lr: 0.0028
+lstm_dim: 29
+out_dim: 29
+walks_iter: 2

@@ -8,5 +8,5 @@ remote_user="root"
 command_to_run=""
 
 # Login to remote server and run command
-ssh -t "$remote_user"@"$remote_host" "cd /home/edge-oriented-graph-master-studying && /bin/bash -l"
+ssh -t "$remote_user"@"$remote_host" "cd /home/edge-oriented-graph-master-studying/results/vlsp-test && /bin/bash -l"
 

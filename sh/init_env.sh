@@ -21,4 +21,9 @@ pip3 install -r /home/edge-oriented-graph-master-studying/requirements.txt
 cd /home/edge-oriented-graph-master-studying/src
 
 # Command 4 - Running script
-sh run.sh
+# sh run.sh
+
+echo -e '------------ init done ------------'
+echo -e '>>> Please copy newest data 100% FILTERED to data/processed/VLSP'
+echo -e 'vlsp_100_copy_to_server.sh'
+

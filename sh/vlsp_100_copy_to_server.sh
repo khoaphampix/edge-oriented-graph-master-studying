@@ -12,3 +12,16 @@ LOCAL_FOLDER_2=/Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/O
 REMOTE_FOLDER_2=/home/edge-oriented-graph-master-studying/data/VLSP/processed
 
 rsync -avz --exclude="*.pyc" --exclude="__pycache__" "${LOCAL_FOLDER_2[@]}" "$remote_user"@"$REMOTE_SERVER":"$REMOTE_FOLDER_2"
+
+
+# Login to remote server and run command
+ssh -t "$remote_user"@"$remote_host" "cd /home/edge-oriented-graph-master-studying/data/VLSP/processed 
+                                        && cp processed/* .
+                                        && pwd 
+                                        && ll -ltlh
+                                    "
+
+# ssh -t "$remote_user"@"$remote_host" "cd /home/edge-oriented-graph-master-studying/data/VLSP/processed 
+#                                         && cp processed/* . 
+#                                         && rm -r processed"
+                                        

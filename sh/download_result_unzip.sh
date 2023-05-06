@@ -7,7 +7,7 @@ REMOTE_HOST=$HOST_IP
 
 REMOTE_USER="root"
 REMOTE_PATH="/home/edge-oriented-graph-master-studying/results/vlsp-test"
-LOCAL_PATH="/Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/result_from_colab/full_dataset_100_percent"
+LOCAL_PATH="/Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/result_from_colab/FILTERED_1st_full_dataset_100_percent"
 
 # create temporary file with timestamp
 NOW=$(date +"%Y-%m-%d_%H-%M-%S")

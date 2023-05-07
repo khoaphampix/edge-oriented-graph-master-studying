@@ -188,7 +188,7 @@ PATH: dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/err
 fx: Song Hong | Tong cong ty cap nuoc Song Hong
 
 
-## FOR BIG FILE 
+## FOR BIG FILE --> REDUCE FILE SIZE
 TWO function to check:
 1. doc with many relation - ON split_passage_for_final_processed
 2. size/number char (len) of a doc after process - ON vlsp.data

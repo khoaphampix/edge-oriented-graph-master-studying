@@ -90,8 +90,8 @@ def split_sentence_from_paragraph(filename, out_put, out_put_with_token):
             para_sents = ""
             para_sents_tk = ""
             for s in sentence_list:
-                s = s.replace("\xc2\xa0", " ")
-                s = s.replace("\xa0", " ")
+                s = s.replace("\xc2\xa0", " ").replace("\xa0", " ").replace("    ", " ").replace("   ", " ").replace("  ", " ")
+
                 if s[-1] == ".":
                     s = s[:-1]
                 

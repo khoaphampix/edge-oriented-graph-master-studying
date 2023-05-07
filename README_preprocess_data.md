@@ -173,3 +173,22 @@ Use mixed-precision training: Mixed-precision training is a technique that uses 
 
 Free up GPU memory: You can also try freeing up GPU memory by deleting unnecessary variables or tensors, or by using PyTorch's memory management functions (e.g., torch.cuda.empty_cache()).
 
+
+### IMPORTANCE NOTE WHEN CLEAN DATA - ENTITY BY 4.2 & 4
+
+1. back up a version (WORKED FILES of "split_passage_for_final_processed")
+
+PATH: dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/docs/common_info_embedd_files/split_passage_for_final_processed
+
+2. MERGE old - new --> reuse the old result
+3. NOTE to clear ALL related word, entit, in a docs that "repeatly exist on error" 
+ON "ent_not_in_set"
+
+PATH: dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/error/manuall_edited/ent_not_in_set
+fx: Song Hong | Tong cong ty cap nuoc Song Hong
+
+
+## FOR BIG FILE 
+TWO function to check:
+1. doc with many relation - ON split_passage_for_final_processed
+2. size/number char (len) of a doc after process - ON vlsp.data

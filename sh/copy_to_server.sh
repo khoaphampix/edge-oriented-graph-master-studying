@@ -28,3 +28,13 @@ LOCAL_FOLDER_2=/Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/O
 REMOTE_FOLDER_2=/home/edge-oriented-graph-master-studying/data/VLSP/tunning
 
 rsync -avz --exclude="*.pyc" --exclude="__pycache__" "${LOCAL_FOLDER_2[@]}" "$remote_user"@"$REMOTE_SERVER":"$REMOTE_FOLDER_2"
+
+
+ssh -t "$remote_user"@"$remote_host" "cd /home/edge-oriented-graph-master-studying/src && 
+            cat /home/edge-oriented-graph-master-studying/configs/parameters_cdr.yaml
+            echo -e '\n'
+            echo -e '------------'
+            cat /home/edge-oriented-graph-master-studying/src/run.sh
+            echo -e '\n'
+            echo -e '------------'
+        "  

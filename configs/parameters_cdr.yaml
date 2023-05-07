@@ -1,3 +1,9 @@
+# # ## vlsp data
+# train_data: ../data/VLSP/processed/vlsp_processed_train_SHUFFLE_340_date_06_05_1st_filtered.data
+# test_data: ../data/VLSP/processed/vlsp_processed_dev_SHUFFLE_180_date_06_05_1st_filtered.data
+
+
+
 
 # # ## vlsp data
 train_data: ../data/VLSP/processed/vlsp_processed_train_340_date_06_05_1st_filtered.data
@@ -54,7 +60,7 @@ window:
 # network
 batch: 1
 epoch: 50
-bilstm_layers: 1
+# bilstm_layers: 2
 word_dim: 200
 
 type_dim: 10
@@ -70,8 +76,9 @@ unk_w_prob: 0.5
 min_w_freq: 1
 
 # ------------------------------
-beta: 0.67
-lr: 0.0028
-lstm_dim: 29
-out_dim: 29
-walks_iter: 2
+bilstm_layers: 3
+beta: 0.7
+lr: 0.0035
+lstm_dim: 34
+out_dim: 34
+walks_iter: 1

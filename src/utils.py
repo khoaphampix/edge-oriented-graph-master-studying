@@ -298,6 +298,7 @@ def print_options(params):
             - out_dim           {}
             - dist_dim          {}
             - type_dim          {}
+            - bilstm_layers     {}
             
             '''.format(params['train_data'], params['test_data'], params['embeds'], params['freeze_words'],
                        params['folder'],
@@ -312,5 +313,6 @@ def print_options(params):
                        params['out_dim'],
                        params['dist_dim'],
                        params['type_dim'],
+                       params['bilstm_layers'],
                        ))
 

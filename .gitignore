@@ -5,6 +5,7 @@ data/GDA/
 data/VLSP/dummy
 data/VLSP/processed
 data/VLSP/processed_bak
+data/VLSP/processed_copy_big
 
 src/run.sh
 sh/.env

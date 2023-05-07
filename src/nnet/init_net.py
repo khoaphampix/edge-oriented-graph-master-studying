@@ -27,7 +27,8 @@ class BaseNet(nn.Module):
 
         self.encoder = Encoder(input_size=params['word_dim'],
                                rnn_size=params['out_dim'],
-                               num_layers=1,
+                            #    num_layers=1,
+                               num_layers=params['bilstm_layers'],
                                bidirectional=True,
                                dropout=0.0)
 

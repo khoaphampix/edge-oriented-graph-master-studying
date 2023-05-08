@@ -1,0 +1,7 @@
+batch: 2
+bilstm_layers: 1
+beta: 0.77
+lr: 0.0023
+lstm_dim: 100
+out_dim: 100
+walks_iter: 2

@@ -1,1 +1,1 @@
-python3 eog.py --config ../configs/parameters_cdr.yaml --train --gpu 0 --epoch 120
+python3 eog.py --config ../configs/parameters_cdr.yaml --train --gpu 0 --epoch 40

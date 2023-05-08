@@ -6,8 +6,8 @@
 
 
 # # ## vlsp data
-train_data: ../data/VLSP/processed/vlsp_processed_train_340_date_06_05_1st_filtered.data
-test_data:  ../data/VLSP/processed/vlsp_processed_dev_180_date_06_05_1st_filtered.data
+train_data: ../data/VLSP/processed/vlsp_processed_08_05_23_TRAIN_line_424_1st_filtered_with_no_rel_remove_big.data
+test_data: ../data/VLSP/processed/vlsp_processed_08_05_23_DEV_line_212_1st_filtered_with_no_rel_remove_big.data
 # embeds: ../embeds/PubMed-VLSP.txt
 embeds: 0
 folder: ../results/vlsp-test
@@ -76,9 +76,10 @@ unk_w_prob: 0.5
 min_w_freq: 1
 
 # ------------------------------
-bilstm_layers: 3
-beta: 0.7
-lr: 0.0035
-lstm_dim: 34
-out_dim: 34
-walks_iter: 1
+batch: 2
+bilstm_layers: 1
+beta: 0.77
+lr: 0.002
+lstm_dim: 100
+out_dim: 100
+walks_iter: 4

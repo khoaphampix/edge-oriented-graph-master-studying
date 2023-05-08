@@ -6,6 +6,7 @@ data/VLSP/dummy
 data/VLSP/processed
 data/VLSP/processed_bak
 data/VLSP/processed_copy_big
+dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/ignore_docs
 
 src/run.sh
 sh/.env

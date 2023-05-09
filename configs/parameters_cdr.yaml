@@ -65,11 +65,11 @@ word_dim: 200
 
 type_dim: 10
 dist_dim: 10
-drop_i: 0.5
+drop_i: 0.4
 drop_m: 0.0
-drop_o: 0.3
+drop_o: 0.4
 gc: 10
-reg: 0.00011
+reg: 0.00015
 opt: adam
 patience: 10
 unk_w_prob: 0.5
@@ -81,8 +81,8 @@ test_data: ../data/VLSP/processed/vlsp_processed_09_05_23_14h_DEV_line_212_1st_f
 # ------------------------------
 batch: 2
 bilstm_layers: 1
-beta: 0.7
-lr: 0.0035
-lstm_dim: 80
-out_dim: 80
+beta: 0.85
+lr: 0.003
+lstm_dim: 85
+out_dim: 85
 walks_iter: 2

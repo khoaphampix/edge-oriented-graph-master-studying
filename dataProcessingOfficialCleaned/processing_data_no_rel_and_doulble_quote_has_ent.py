@@ -366,8 +366,12 @@ def save_single_relation(new_doc_obj, rel, index_org, rel_pair):
     rel_obj.type = rel
     ref_ent_org = rel_pair.split("[")[0]
 
-    ref_ent = int( ref_ent_org.split("-")[1] )
-    current_ent = int( index_org.split("-")[1] )
+    # ref_ent = int( ref_ent_org.split("-")[1] )
+    # current_ent = int( index_org.split("-")[1] )
+
+    ref_ent = ref_ent_org.split("-")[1]
+    current_ent = index_org.split("-")[1]
+
 
     current_ent_code = get_entity_code(new_doc_obj, index_org)
     ref_ent_code = get_entity_code(new_doc_obj, ref_ent_org)
@@ -509,24 +513,57 @@ def save_excell_for_view(mypath, data_set="dev", exclude_folder_path = None):
     exclude_folder = read_ignore_file(
                                         # f"{dev_processed}/no_relation.txt",
                                         f"{dev_processed}/double_quote_err.txt", 
-                                        f"{dev_processed}/data_errors_files.txt"
+                                        # f"{dev_processed}/data_errors_files.txt"
                                     )
     print(">>> "*50)
-    print("exclude_folder ", exclude_folder)
+    # print("exclude_folder ", exclude_folder)
+    print("exclude_folder ", len(exclude_folder))
+    # exclude_folder = []
     sub_folder_ls = [ d for d in listdir(mypath_data) if ( isdir(join(mypath_data, d)) and d.strip() not in exclude_folder)]
 
     total= 0
     for fd in sub_folder_ls:
 
-
-        data_errors_files = ["23353824.conll", "23353757.conll" ]
-        
-        if fd in data_errors_files:
-            continue
-
         # error_no_rel_list = ["23352000"]
         # if fd[:8] in error_no_rel_list:
         #     continue
+
+        err_file_=["23352816.conll" , "23353824.conll"]
+        if fd in err_file_:
+            print("err_file_  ", err_file_)
+            continue
+
+
+
+        # double_quote_but_has_ent = {'23351951.conll',
+        # '23351976.conll',
+        # '23353891.conll',
+        # '23357233.conll',
+        # '23357491.conll',
+        # '23357897.conll'}
+        # if fd not in double_quote_but_has_ent:
+        #     continue
+
+
+
+        # data_errors_files = ["23357779.conll", "23351945.conll", 
+        #                      "23351433.conll", "23351610.conll", "23351984.conll", 
+        #                      "23356574.conll", "23357000.conll", "23357063.conll" ]
+
+        # data_errors_files = ["23357779.conll", "23351945.conll",
+        #                     #   "23352816.conll", 
+        #                      "23351433.conll", "23351610.conll", "23351984.conll", 
+        #                      "23356574.conll", "23357000.conll", "23357063.conll"]
+        
+
+        # data_errors_files = ["23353824.conll" ]
+        
+        # if fd in data_errors_files:
+        #     continue
+
+
+
+
 
         print(f"{total}.__ {data_set}: working on ------------{fd}---")
         full_path_to_file = join(f"{mypath_data}/{fd}","CURATION_USER.tsv")
@@ -535,7 +572,9 @@ def save_excell_for_view(mypath, data_set="dev", exclude_folder_path = None):
         
         # try:
         sentence_line_number = get_sentence_line_number(full_path_to_file, True)
-        tsv_read_df = pd.read_csv(full_path_to_file, sep='\t', encoding = 'utf-8', skiprows=sentence_line_number+1, header=None) 
+        tsv_read_df = pd.read_csv(full_path_to_file, sep='\t', encoding = 'utf-8', 
+                                  engine="python",
+                                  skiprows=sentence_line_number+1, header=None, error_bad_lines=False) 
         # print(">>> len ", len(tsv_read_df.columns), type(tsv_read_df.columns))
         # use for empty 
         if len(tsv_read_df.columns) == 6:

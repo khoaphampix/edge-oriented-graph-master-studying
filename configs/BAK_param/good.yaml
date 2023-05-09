@@ -5,3 +5,32 @@ lr: 0.0023
 lstm_dim: 100
 out_dim: 100
 walks_iter: 2
+
+
+batch: 2
+bilstm_layers: 1
+beta: 0.7
+lr: 0.0033
+lstm_dim: 100
+out_dim: 100
+walks_iter: 2
+
+type_dim: 10
+dist_dim: 10
+drop_i: 0.55
+drop_m: 0.0
+drop_o: 0.33
+gc: 10
+reg: 0.00012
+opt: adam
+patience: 10
+unk_w_prob: 0.5
+min_w_freq: 1
+
+batch: 2
+bilstm_layers: 1
+beta: 0.70
+lr: 0.0035
+lstm_dim: 100
+out_dim: 100
+walks_iter: 2

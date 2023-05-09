@@ -6,8 +6,8 @@
 
 
 # # ## vlsp data
-train_data: ../data/VLSP/processed/vlsp_processed_08_05_23_16h_TRAIN_line_442_1st_filtered_with_no_rel_remove_big.data
-test_data: ../data/VLSP/processed/vlsp_processed_08_05_23_16h_DEV_line_224_1st_filtered_with_no_rel_remove_big
+# train_data: ../data/VLSP/processed/vlsp_processed_08_05_23_16h_TRAIN_line_442_1st_filtered_with_no_rel_remove_big.data
+# test_data: ../data/VLSP/processed/vlsp_processed_08_05_23_16h_DEV_line_224_1st_filtered_with_no_rel_remove_big
 # embeds: ../embeds/PubMed-VLSP.txt
 embeds: 0
 folder: ../results/vlsp-test
@@ -69,17 +69,20 @@ drop_i: 0.5
 drop_m: 0.0
 drop_o: 0.3
 gc: 10
-reg: 0.0001
+reg: 0.00011
 opt: adam
 patience: 10
 unk_w_prob: 0.5
 min_w_freq: 1
 
+train_data: ../data/VLSP/processed/vlsp_processed_09_05_23_14h_TRAIN_line_443_1st_filtered_with_no_rel_remove_big
+test_data: ../data/VLSP/processed/vlsp_processed_09_05_23_14h_DEV_line_212_1st_filtered_with_no_rel_remove_big
+
 # ------------------------------
-batch: 1
+batch: 2
 bilstm_layers: 1
-beta: 0.77
-lr: 0.0023
-lstm_dim: 100
-out_dim: 100
+beta: 0.7
+lr: 0.0035
+lstm_dim: 80
+out_dim: 80
 walks_iter: 2

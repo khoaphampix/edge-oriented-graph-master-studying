@@ -8,6 +8,7 @@ data/VLSP/processed_bak
 data/VLSP/processed_copy_big
 dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/ignore_docs
 dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/ignore_docs/ignore_big_docs
+dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/error/copy_and_replace_worked_fils/worked_files
 
 src/run.sh
 sh/.env

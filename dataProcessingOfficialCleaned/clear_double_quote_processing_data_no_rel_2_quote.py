@@ -517,20 +517,33 @@ def save_excell_for_view(mypath, data_set="dev", exclude_folder_path = None):
 
     print(">>> "*50)
     print("exclude_folder ", exclude_folder)
+    exclude_folder +=["23352816.conll"]
+
+    # worked file
+    error_no_rel_list = \
+            ["23357779.conll", "23351945.conll", "23351433.conll", 
+            "23351610.conll", "23351984.conll", "23356574.conll", "23357000.conll", "23357063.conll"]
+    exclude_folder = list(set(exclude_folder) - set(error_no_rel_list))
+
+
+
     sub_folder_ls = [ d for d in listdir(mypath_data) if ( isdir(join(mypath_data, d)) and d.strip() not in exclude_folder)]
+
+    # print(len(sub_folder_ls))
+    # return
 
     total= 0
     for fd in sub_folder_ls:
 
         # 23352734.conll,23352408.conll,23352562.conll,23352561.conll,
 
-        # error_no_rel_list = ["23352816.conll"]
-        # if fd in error_no_rel_list:
-        #     continue
+        error_no_rel_list = ["23352816.conll"]
+        if fd in error_no_rel_list:
+            continue
 
-        error_no_rel_list = \
-            ["23357779.conll", "23351945.conll", "23352816.conll", "23351433.conll", 
-            "23351610.conll", "23351984.conll", "23356574.conll", "23357000.conll", "23357063.conll"]
+        # error_no_rel_list = \
+        #     ["23357779.conll", "23351945.conll", "23351433.conll", 
+        #     "23351610.conll", "23351984.conll", "23356574.conll", "23357000.conll", "23357063.conll"]
         
         # error_no_rel_list = \
         #     ["23357779.conll", "23351945.conll", "23351433.conll", 

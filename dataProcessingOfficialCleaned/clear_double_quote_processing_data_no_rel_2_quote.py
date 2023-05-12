@@ -524,9 +524,9 @@ def save_excell_for_view(mypath, data_set="dev", exclude_folder_path = None):
 
         # 23352734.conll,23352408.conll,23352562.conll,23352561.conll,
 
-        error_no_rel_list = ["23352816.conll"]
-        if fd in error_no_rel_list:
-            continue
+        # error_no_rel_list = ["23352816.conll"]
+        # if fd in error_no_rel_list:
+        #     continue
 
         error_no_rel_list = \
             ["23357779.conll", "23351945.conll", "23352816.conll", "23351433.conll", 

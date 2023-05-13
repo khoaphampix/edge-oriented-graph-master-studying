@@ -14,5 +14,4 @@ command_to_run=""
 #                                         & /bin/bash -l"
 
 
-ssh -t "$remote_user"@"$remote_host" "cp /home/edge-oriented-graph-master-studying/data/VLSP/processed/* /home/edge-oriented-graph-master-studying/data/VLSP/processed/  & ll -ltlh & /bin/bash -l"
-
+ssh -t "$remote_user"@"$remote_host" "cd /home/edge-oriented-graph-master-studying/data/VLSP/processed/ && ls -ltlh && cp processed/* . &&  ls -ltlh "

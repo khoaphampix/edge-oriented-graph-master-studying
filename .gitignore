@@ -14,7 +14,7 @@ dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/Re_c
 dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/Re_check_data/error_double_quote_data/json_find_double_quote.json
 /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/Re_check_data/error_double_quote_data/merge_all_line_2_find_double_quote
 
-
+dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/clean_vietnamese_text/prevent_stop_word_remove_entity/view_data/ent_split_space_doc.json
 src/run.sh
 sh/.env
 

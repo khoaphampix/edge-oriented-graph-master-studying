@@ -191,3 +191,17 @@ fx: Song Hong | Tong cong ty cap nuoc Song Hong
 TWO function to check:
 1. doc with many relation - ON split_passage_for_final_processed
 2. size/number char (len) of a doc after process - ON vlsp.data
+
+
+ssh -p 8964 root@sshe.jarvislabs.ai
+ssh -p 8966 root@sshe.jarvislabs.ai
+
+scp -P 8966 /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/data/VLSP/processed.zip  root@sshe.jarvislabs.ai:/home/edge-oriented-graph-master-studying/data/VLSP/processed
+
+
+unzip processed
+cp processed/* .
+
+
+
+

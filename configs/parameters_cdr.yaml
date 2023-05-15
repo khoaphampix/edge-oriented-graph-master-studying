@@ -34,6 +34,7 @@ seed: 0
 shuffle_data: true
 label2ignore: 1:NR:2 # need to label data in VLSP
 primary_metric: micro_f
+# direction: l2r+r2l
 direction: l2r+r2l
 
 # # vlsp data
@@ -42,8 +43,10 @@ classify_pairs: ['PERSON-LOCATION', 'ORGANIZATION-LOCATION', 'LOCATION-LOCATION'
 
 
 edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind']
-# edges: ['MM', 'ME', 'MS', 'ES', 'SS']
-# edges: ['ES', 'SS']
+# edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind', 'SS']
+# edges: ['ES', 'SS', 'SS-ind']
+# edges: ['ME', 'ES', 'SS-ind']
+# edges: ['ES', 'SS-ind']
 window:
 
 # classify_pairs: [
@@ -75,14 +78,14 @@ patience: 10
 unk_w_prob: 0.5
 min_w_freq: 1
 
-train_data: ../data/VLSP/processed/vlsp_processed_11_05_23_1h_TRAIN_line_478_1st_filtered_with_no_rel_remove_big
-test_data: ../data/VLSP/processed/vlsp_processed_11_05_23_1h_DEV_line_246_1st_filtered_with_no_rel_remove_big
-
+train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_402_rm_zero_rel_below_1000_checked_sent_DUPLICATE_times_code_1_code_2
+test_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_221_rm_zero_rel_below_1000_checked_sent
+        
 # ------------------------------
-batch: 1
+batch: 3
 bilstm_layers: 1
-beta: 0.78
-lr: 0.0025
+beta: 0.7
+lr: 0.002
 lstm_dim: 100
 out_dim: 100
 walks_iter: 2

@@ -15,6 +15,8 @@ git checkout dev-low-memory
 
 # Command 2 - Installing dependencies
 pip3 install -r /home/edge-oriented-graph-master-studying/requirements.txt
+# pip install --target=$nb_path numpy==1.21.6              
+pip install --target=$nb_path numpy==1.21.6              
 
 
 # Command 3 - Changing directory

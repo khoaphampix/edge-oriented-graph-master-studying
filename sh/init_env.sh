@@ -17,7 +17,10 @@ git checkout dev-low-memory
 pip3 install -r /home/edge-oriented-graph-master-studying/requirements.txt
 # pip install --target=$nb_path numpy==1.21.6              
 pip install --target=$nb_path numpy==1.21.6              
-
+pip install --target=$nb_path networkx
+pip install --target=$nb_path yamlordereddictloader
+pip install --target=$nb_path recordtype
+pip install --target=$nb_path jupyter_beeper
 
 # Command 3 - Changing directory
 cd /home/edge-oriented-graph-master-studying/src

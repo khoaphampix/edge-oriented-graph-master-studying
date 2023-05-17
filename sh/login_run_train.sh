@@ -11,4 +11,4 @@ command_to_run=""
 # Login to remote server and run command
 # ssh -t "$remote_user"@"$remote_host" "cd /home/edge-oriented-graph-master-studying/src && sh run.sh"
 
-ssh -t "$remote_user"@"$remote_host" "cd /home/edge-oriented-graph-master-studying/src && sh run.sh && /bin/bash -l"
+ssh -t "$remote_user"@"$remote_host" "cd /home/edge-oriented-graph-master-studying/src && /bin/bash -l"

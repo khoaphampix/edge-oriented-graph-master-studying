@@ -196,7 +196,7 @@ TWO function to check:
 ssh -p 8964 root@sshe.jarvislabs.ai
 ssh -p 8966 root@sshe.jarvislabs.ai
 
-scp -P 8966 /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/data/VLSP/processed.zip  root@sshe.jarvislabs.ai:/home/edge-oriented-graph-master-studying/data/VLSP/processed
+scp -P 8962 /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/data/VLSP/processed.zip  root@sshe.jarvislabs.ai:/home/edge-oriented-graph-master-studying/data/VLSP/processed
 
 scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/data/PubMed-VLSP.txt.zip root@65.108.32.172:/home/edge-oriented-graph-master-studying/embeds/PubMed-VLSP.txt.zip
 
@@ -205,6 +205,9 @@ scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_A
 unzip processed
 cp processed/* .
 
+ssh -p 8962 root@sshe.jarvislabs.ai
+
+scp -P 8962 /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/data/PubMed-VLSP.txt.zip root@sshe.jarvislabs.ai:/home/edge-oriented-graph-master-studying/embeds/PubMed-VLSP.txt.zip
 
 
 
@@ -220,5 +223,6 @@ case check split sentence manually
 
 [ ][.][|]\- ? [ ][.][|]
 
+ssh -p 8962 root@sshe.jarvislabs.ai
 
 scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/data/PubMed-VLSP.txt.zip root@65.108.32.172:/home/edge-oriented-graph-master-studying/embeds/PubMed-VLSP.txt.zip

@@ -30,6 +30,7 @@ dataProcessingOfficialCleaned/VLSP2020_RE_train
 /dataProcessingOfficialCleaned/.vscode/settings.json
 data/VLSP/BERT_checked
 dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/data
+data/VLSP/zip_to_server
 
 .DS_Store
 .DS_Store?

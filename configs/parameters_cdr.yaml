@@ -67,12 +67,12 @@ word_dim: 192
 
 type_dim: 10
 dist_dim: 10
-drop_i: 0.5
+drop_i: 0.52
 drop_m: 0.0
-drop_o: 0.3
+drop_o: 0.27
 gc: 10
 # reg: 0.0001
-reg: 0.0001
+reg: 0.00011
 opt: adam
 patience: 10
 unk_w_prob: 0.5
@@ -85,12 +85,17 @@ train_data: ../data/VLSP/processed/vlsp_16_05_23_FOR_BERT_line_432_TRAIN
 test_data:  ../data/VLSP/processed/vlsp_16_05_23_FOR_BERT_line_221_DEV
 
 embeds: ../embeds/PubMed-VLSP.txt
+freeze_words: true
+
+# embeds: 0
+# freeze_words: false
+word_dim: 200
 
 # ------------------------------
-batch: 3
+batch: 2
 bilstm_layers: 1
 beta: 0.7
-lr: 0.002
-lstm_dim: 82
-out_dim: 82
-walks_iter: 3
+lr: 0.0035
+lstm_dim: 80
+out_dim: 80
+walks_iter: 2

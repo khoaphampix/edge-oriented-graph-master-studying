@@ -67,7 +67,7 @@ word_dim: 192
 
 type_dim: 10
 dist_dim: 10
-drop_i: 0.52
+drop_i: 0.53
 drop_m: 0.0
 drop_o: 0.27
 gc: 10
@@ -80,22 +80,39 @@ min_w_freq: 1
 
 # train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_402_rm_zero_rel_below_1000_checked_sent_DUPLICATE_3times
 # test_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_221_rm_zero_rel_below_1000_checked_sent
-        
-train_data: ../data/VLSP/processed/vlsp_16_05_23_FOR_BERT_line_432_TRAIN
-test_data:  ../data/VLSP/processed/vlsp_16_05_23_FOR_BERT_line_221_DEV
+
+# train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_411_rm_zero_rel_below_3000_checked_sent
+# test_data:  ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_229_rm_zero_rel_below_3000_checked_sent
+
+
+# train_data: ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_497_TRAIN
+# test_data:  ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_230_DEV
+
+
+# train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_411_rm_zero_rel_below_3000_checked_sent
+# test_data:  ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_230_DEV
+
+# train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_402_rm_zero_rel_below_1000_checked_sent_DUPLICATE_times_code_1_code_2
+# train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_402_rm_zero_rel_below_1000_checked_sent
+
+train_data: ../data/VLSP/processed/vlsp_processed_13_05_23_16h30_TRAIN_line_497_stop_word_remove_all_special
+test_data:  ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_230_DEV
+
 
 embeds: ../embeds/PubMed-VLSP.txt
 freeze_words: true
+folder: ../results/vlsp-test
+# folder: ../results/vlsp-test-new
 
 # embeds: 0
 # freeze_words: false
-word_dim: 200
+word_dim: 192
 
 # ------------------------------
 batch: 2
 bilstm_layers: 1
 beta: 0.7
-lr: 0.0035
+lr: 0.0034
 lstm_dim: 80
 out_dim: 80
 walks_iter: 2

@@ -38,7 +38,6 @@ data/VLSP/zip_to_server
 PhoBERT_base_fairseq
 /results/cdr-test/b2-walks16_MM_ME_MS_ES_SS-ind_context_types_dist_freeze/info_train.log
 dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/docs/*
-embeds/*
 results/cdr-test/b2-walks16_MM_ME_MS_ES_SS-ind_context_types_dist_freeze/*
 results/*
 results/
@@ -55,7 +54,6 @@ PhoBERT_base_fairseq
 dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/docs/*
 dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/error/error_not_found_ent_in_msg_to_half_manual_edit_words_in_doc/*
 dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/error/error_not_found_ent_in_msg_to_half_manual_edit_words_in_doc
-embeds/*
 results/*
 results/
 blob/

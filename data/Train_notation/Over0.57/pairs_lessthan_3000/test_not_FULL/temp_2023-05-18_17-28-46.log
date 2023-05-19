@@ -1,0 +1,346 @@
+Loading training data ...
+duplicates_times >>>  43409
+  Documents: 411  
+  Words: 22265
+  Relations: 12609
+	1:AFFILIATION:2	662  	ID: 0
+	1:LOCATED:2	461  	ID: 1
+	1:NR:2    	10506	ID: 2
+	1:PART - WHOLE:2	898  	ID: 3
+	1:PERSONAL - SOCIAL:2	82   	ID: 4
+  Entities: 4754
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	1998 	ID: 5
+	ORGANIZATION	1494 	ID: 3
+	PERSON    	1262 	ID: 4
+  Singletons: 11787/22265
+  Found pre-trained word embeddings: 22533 x 192 --> Words + Pre-trained: 30509
+
+Loading testing data ...
+duplicates_times >>>  32941
+  Documents: 229  
+  Words: 13254
+  Relations: 8498
+	1:AFFILIATION:2	444  	ID: 0
+	1:LOCATED:2	324  	ID: 3
+	1:NR:2    	7179 	ID: 1
+	1:PART - WHOLE:2	462  	ID: 2
+	1:PERSONAL - SOCIAL:2	89   	ID: 4
+  Entities: 2912
+	<ENT>     	1    	ID: 0
+	<MENT>    	1    	ID: 1
+	<SENT>    	1    	ID: 2
+	LOCATION  	1085 	ID: 5
+	ORGANIZATION	844  	ID: 3
+	PERSON    	983  	ID: 4
+  Singletons: 6894/13254
+
+Parameters:
+            - Train Data        ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_411_rm_zero_rel_below_3000_checked_sent
+            - Test Data         ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_229_rm_zero_rel_below_3000_checked_sent
+            - Embeddings        ../embeds/PubMed-VLSP.txt, Freeze: True
+            - Save folder       ../results/vlsp-test
+
+            - batchsize         2
+            - Walks iteration   2 -> Length = 4
+            - beta              0.7
+
+            - Context           True
+            - Node Type         True
+            - Distances         True
+            - Edge Types        ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+            - Window            None
+            
+            - Epoch             80
+            - UNK word prob     0.5
+            - Parameter Average True
+            - Early stop        False -> Patience = 10
+            - Regularization    0.00011
+            - Gradient Clip     10
+            - Dropout I/O       0.5/0.27
+            - Learning rate     0.0035
+            - Seed              0
+            - lstm_dim          80
+            - out_dim           80
+            - dist_dim          10
+            - type_dim          10
+            - bilstm_layers     1
+            
+            
+encoder.enc.weight_ih_l0
+encoder.enc.weight_hh_l0
+encoder.enc.bias_ih_l0
+encoder.enc.bias_hh_l0
+encoder.enc.weight_ih_l0_reverse
+encoder.enc.weight_hh_l0_reverse
+encoder.enc.bias_ih_l0_reverse
+encoder.enc.bias_hh_l0_reverse
+dist_embed.embedding.weight
+type_embed.embedding.weight
+reduce.MM.weight
+reduce.SS.weight
+reduce.ME.weight
+reduce.MS.weight
+reduce.ES.weight
+walk.W
+classifier.lin.weight
+classifier.lin.bias
+
+======== START TRAINING: 18-05-23_09:42:57 ========
+
+END time_expect: 2023-05-18 10:16:57
+
+Epoch: 01 | TRAIN | LOSS = 1.26248, ACC = 0.7799 , MICRO P/R/F1 = 0.0682	0.0258	0.0374 | TP/ACTUAL/PRED = 49     /1901   /718    , TOTAL 11456   | 0h 00m 29s
+            TEST  | LOSS = 0.87835, ACC = 0.8435 , MICRO P/R/F1 = 0.0000	0.0000	0.0000 | TP/ACTUAL/PRED = 0      /1147   /0      , TOTAL 7327    | 0h 00m 05s
+
+Epoch: 02 | TRAIN | LOSS = 0.85620, ACC = 0.8109 , MICRO P/R/F1 = 0.2441	0.0652	0.1029 | TP/ACTUAL/PRED = 124    /1901   /508    , TOTAL 11428   | 0h 00m 26s
+            TEST  | LOSS = 0.70979, ACC = 0.8262 , MICRO P/R/F1 = 0.3457	0.1378	0.1970 | TP/ACTUAL/PRED = 158    /1147   /457    , TOTAL 7412    | 0h 00m 05s
+
+Epoch: 03 | TRAIN | LOSS = 0.77222, ACC = 0.8048 , MICRO P/R/F1 = 0.3192	0.1541	0.2079 | TP/ACTUAL/PRED = 293    /1901   /918    , TOTAL 11439   | 0h 00m 26s
+            TEST  | LOSS = 0.65243, ACC = 0.8453 , MICRO P/R/F1 = 0.5063	0.2110	0.2978 | TP/ACTUAL/PRED = 242    /1147   /478    , TOTAL 7375    | 0h 00m 04s
+
+Epoch: 04 | TRAIN | LOSS = 0.66587, ACC = 0.8211 , MICRO P/R/F1 = 0.4218	0.2099	0.2803 | TP/ACTUAL/PRED = 399    /1901   /946    , TOTAL 11454   | 0h 00m 29s
+            TEST  | LOSS = 0.57886, ACC = 0.8479 , MICRO P/R/F1 = 0.5939	0.0854	0.1494 | TP/ACTUAL/PRED = 98     /1147   /165    , TOTAL 7338    | 0h 00m 04s
+
+Epoch: 05 | TRAIN | LOSS = 0.69459, ACC = 0.8171 , MICRO P/R/F1 = 0.4146	0.2514	0.3130 | TP/ACTUAL/PRED = 478    /1901   /1153   , TOTAL 11470   | 0h 00m 28s
+            TEST  | LOSS = 0.55393, ACC = 0.8509 , MICRO P/R/F1 = 0.7455	0.0715	0.1305 | TP/ACTUAL/PRED = 82     /1147   /110    , TOTAL 7329    | 0h 00m 05s
+
+Epoch: 06 | TRAIN | LOSS = 0.64056, ACC = 0.8381 , MICRO P/R/F1 = 0.5214	0.2946	0.3765 | TP/ACTUAL/PRED = 560    /1901   /1074   , TOTAL 11457   | 0h 00m 28s
+            TEST  | LOSS = 0.52756, ACC = 0.8565 , MICRO P/R/F1 = 0.7411	0.1273	0.2173 | TP/ACTUAL/PRED = 146    /1147   /197    , TOTAL 7330    | 0h 00m 04s
+
+Epoch: 07 | TRAIN | LOSS = 0.60148, ACC = 0.8321 , MICRO P/R/F1 = 0.4904	0.3361	0.3989 | TP/ACTUAL/PRED = 639    /1901   /1303   , TOTAL 11474   | 0h 00m 25s
+            TEST  | LOSS = 0.50939, ACC = 0.8623 , MICRO P/R/F1 = 0.7161	0.1979	0.3101 | TP/ACTUAL/PRED = 227    /1147   /317    , TOTAL 7337    | 0h 00m 04s
+
+Epoch: 08 | TRAIN | LOSS = 0.57853, ACC = 0.8422 , MICRO P/R/F1 = 0.5329	0.4003	0.4572 | TP/ACTUAL/PRED = 761    /1901   /1428   , TOTAL 11453   | 0h 00m 27s
+            TEST  | LOSS = 0.50185, ACC = 0.8678 , MICRO P/R/F1 = 0.7167	0.2537	0.3748 | TP/ACTUAL/PRED = 291    /1147   /406    , TOTAL 7344    | 0h 00m 04s
+
+Epoch: 09 | TRAIN | LOSS = 0.55565, ACC = 0.8456 , MICRO P/R/F1 = 0.5507	0.3772	0.4477 | TP/ACTUAL/PRED = 717    /1901   /1302   , TOTAL 11454   | 0h 00m 27s
+            TEST  | LOSS = 0.49227, ACC = 0.8730 , MICRO P/R/F1 = 0.6974	0.3296	0.4476 | TP/ACTUAL/PRED = 378    /1147   /542    , TOTAL 7348    | 0h 00m 04s
+
+Epoch: 10 | TRAIN | LOSS = 0.50748, ACC = 0.8480 , MICRO P/R/F1 = 0.5585	0.3940	0.4621 | TP/ACTUAL/PRED = 749    /1901   /1341   , TOTAL 11473   | 0h 00m 27s
+            TEST  | LOSS = 0.48618, ACC = 0.8743 , MICRO P/R/F1 = 0.7016	0.3383	0.4565 | TP/ACTUAL/PRED = 388    /1147   /553    , TOTAL 7348    | 0h 00m 05s
+
+Epoch: 11 | TRAIN | LOSS = 0.47325, ACC = 0.8580 , MICRO P/R/F1 = 0.5957	0.4503	0.5129 | TP/ACTUAL/PRED = 856    /1901   /1437   , TOTAL 11453   | 0h 00m 27s
+            TEST  | LOSS = 0.48109, ACC = 0.8755 , MICRO P/R/F1 = 0.6933	0.3627	0.4762 | TP/ACTUAL/PRED = 416    /1147   /600    , TOTAL 7352    | 0h 00m 05s
+
+Epoch: 12 | TRAIN | LOSS = 0.44171, ACC = 0.8641 , MICRO P/R/F1 = 0.6187	0.4745	0.5371 | TP/ACTUAL/PRED = 902    /1901   /1458   , TOTAL 11439   | 0h 00m 28s
+            TEST  | LOSS = 0.47648, ACC = 0.8770 , MICRO P/R/F1 = 0.7022	0.3679	0.4828 | TP/ACTUAL/PRED = 422    /1147   /601    , TOTAL 7350    | 0h 00m 04s
+
+Epoch: 13 | TRAIN | LOSS = 0.48643, ACC = 0.8453 , MICRO P/R/F1 = 0.5399	0.4661	0.5003 | TP/ACTUAL/PRED = 886    /1901   /1641   , TOTAL 11439   | 0h 00m 29s
+            TEST  | LOSS = 0.47700, ACC = 0.8777 , MICRO P/R/F1 = 0.6956	0.3845	0.4952 | TP/ACTUAL/PRED = 441    /1147   /634    , TOTAL 7353    | 0h 00m 04s
+
+Epoch: 14 | TRAIN | LOSS = 0.45463, ACC = 0.8571 , MICRO P/R/F1 = 0.5865	0.4671	0.5201 | TP/ACTUAL/PRED = 888    /1901   /1514   , TOTAL 11467   | 0h 00m 27s
+            TEST  | LOSS = 0.47605, ACC = 0.8782 , MICRO P/R/F1 = 0.7006	0.3836	0.4958 | TP/ACTUAL/PRED = 440    /1147   /628    , TOTAL 7351    | 0h 00m 04s
+
+Epoch: 15 | TRAIN | LOSS = 0.43480, ACC = 0.8681 , MICRO P/R/F1 = 0.6300	0.4997	0.5573 | TP/ACTUAL/PRED = 950    /1901   /1508   , TOTAL 11438   | 0h 00m 31s
+            TEST  | LOSS = 0.47632, ACC = 0.8767 , MICRO P/R/F1 = 0.6744	0.4045	0.5057 | TP/ACTUAL/PRED = 464    /1147   /688    , TOTAL 7357    | 0h 00m 04s
+
+Epoch: 16 | TRAIN | LOSS = 0.40024, ACC = 0.8727 , MICRO P/R/F1 = 0.6485	0.5124	0.5724 | TP/ACTUAL/PRED = 974    /1901   /1502   , TOTAL 11427   | 0h 00m 27s
+            TEST  | LOSS = 0.47677, ACC = 0.8774 , MICRO P/R/F1 = 0.6667	0.4272	0.5207 | TP/ACTUAL/PRED = 490    /1147   /735    , TOTAL 7357    | 0h 00m 05s
+
+Epoch: 17 | TRAIN | LOSS = 0.38351, ACC = 0.8775 , MICRO P/R/F1 = 0.6621	0.5371	0.5931 | TP/ACTUAL/PRED = 1021   /1901   /1542   , TOTAL 11441   | 0h 00m 29s
+            TEST  | LOSS = 0.47689, ACC = 0.8778 , MICRO P/R/F1 = 0.6553	0.4542	0.5366 | TP/ACTUAL/PRED = 521    /1147   /795    , TOTAL 7363    | 0h 00m 05s
+
+Epoch: 18 | TRAIN | LOSS = 0.38314, ACC = 0.8732 , MICRO P/R/F1 = 0.6435	0.5318	0.5824 | TP/ACTUAL/PRED = 1011   /1901   /1571   , TOTAL 11436   | 0h 00m 27s
+            TEST  | LOSS = 0.47633, ACC = 0.8783 , MICRO P/R/F1 = 0.6583	0.4551	0.5381 | TP/ACTUAL/PRED = 522    /1147   /793    , TOTAL 7360    | 0h 00m 04s
+
+Epoch: 19 | TRAIN | LOSS = 0.36692, ACC = 0.8845 , MICRO P/R/F1 = 0.6977	0.5402	0.6090 | TP/ACTUAL/PRED = 1027   /1901   /1472   , TOTAL 11418   | 0h 00m 26s
+            TEST  | LOSS = 0.47572, ACC = 0.8770 , MICRO P/R/F1 = 0.6443	0.4690	0.5429 | TP/ACTUAL/PRED = 538    /1147   /835    , TOTAL 7363    | 0h 00m 05s
+
+Epoch: 20 | TRAIN | LOSS = 0.40050, ACC = 0.8747 , MICRO P/R/F1 = 0.6474	0.5408	0.5893 | TP/ACTUAL/PRED = 1028   /1901   /1588   , TOTAL 11436   | 0h 00m 27s
+            TEST  | LOSS = 0.47512, ACC = 0.8758 , MICRO P/R/F1 = 0.6336	0.4795	0.5459 | TP/ACTUAL/PRED = 550    /1147   /868    , TOTAL 7366    | 0h 00m 04s
+
+Epoch: 21 | TRAIN | LOSS = 0.38185, ACC = 0.8829 , MICRO P/R/F1 = 0.6769	0.5665	0.6168 | TP/ACTUAL/PRED = 1077   /1901   /1591   , TOTAL 11425   | 0h 00m 27s
+            TEST  | LOSS = 0.47337, ACC = 0.8755 , MICRO P/R/F1 = 0.6310	0.4830	0.5472 | TP/ACTUAL/PRED = 554    /1147   /878    , TOTAL 7367    | 0h 00m 05s
+
+Epoch: 22 | TRAIN | LOSS = 0.35186, ACC = 0.8870 , MICRO P/R/F1 = 0.7001	0.5613	0.6231 | TP/ACTUAL/PRED = 1067   /1901   /1524   , TOTAL 11423   | 0h 00m 28s
+            TEST  | LOSS = 0.47270, ACC = 0.8757 , MICRO P/R/F1 = 0.6282	0.4935	0.5527 | TP/ACTUAL/PRED = 566    /1147   /901    , TOTAL 7370    | 0h 00m 05s
+
+Epoch: 23 | TRAIN | LOSS = 0.34752, ACC = 0.8875 , MICRO P/R/F1 = 0.6840	0.6034	0.6411 | TP/ACTUAL/PRED = 1147   /1901   /1677   , TOTAL 11409   | 0h 00m 27s
+            TEST  | LOSS = 0.47394, ACC = 0.8753 , MICRO P/R/F1 = 0.6245	0.4987	0.5545 | TP/ACTUAL/PRED = 572    /1147   /916    , TOTAL 7368    | 0h 00m 04s
+
+Epoch: 24 | TRAIN | LOSS = 0.36075, ACC = 0.8837 , MICRO P/R/F1 = 0.6808	0.5676	0.6190 | TP/ACTUAL/PRED = 1079   /1901   /1585   , TOTAL 11414   | 0h 00m 29s
+            TEST  | LOSS = 0.47475, ACC = 0.8762 , MICRO P/R/F1 = 0.6273	0.5048	0.5594 | TP/ACTUAL/PRED = 579    /1147   /923    , TOTAL 7367    | 0h 00m 04s
+
+Epoch: 25 | TRAIN | LOSS = 0.35076, ACC = 0.8857 , MICRO P/R/F1 = 0.6813	0.5881	0.6313 | TP/ACTUAL/PRED = 1118   /1901   /1641   , TOTAL 11425   | 0h 00m 29s
+            TEST  | LOSS = 0.47464, ACC = 0.8772 , MICRO P/R/F1 = 0.6352	0.4978	0.5582 | TP/ACTUAL/PRED = 571    /1147   /899    , TOTAL 7364    | 0h 00m 05s
+
+Epoch: 26 | TRAIN | LOSS = 0.33116, ACC = 0.8876 , MICRO P/R/F1 = 0.6922	0.5844	0.6338 | TP/ACTUAL/PRED = 1111   /1901   /1605   , TOTAL 11423   | 0h 00m 30s
+            TEST  | LOSS = 0.47539, ACC = 0.8762 , MICRO P/R/F1 = 0.6279	0.5031	0.5586 | TP/ACTUAL/PRED = 577    /1147   /919    , TOTAL 7366    | 0h 00m 05s
+
+Epoch: 27 | TRAIN | LOSS = 0.32885, ACC = 0.8895 , MICRO P/R/F1 = 0.6973	0.5950	0.6421 | TP/ACTUAL/PRED = 1131   /1901   /1622   , TOTAL 11414   | 0h 00m 30s
+            TEST  | LOSS = 0.47669, ACC = 0.8769 , MICRO P/R/F1 = 0.6293	0.5092	0.5629 | TP/ACTUAL/PRED = 584    /1147   /928    , TOTAL 7366    | 0h 00m 05s
+
+Epoch: 28 | TRAIN | LOSS = 0.31809, ACC = 0.8907 , MICRO P/R/F1 = 0.6971	0.6065	0.6487 | TP/ACTUAL/PRED = 1153   /1901   /1654   , TOTAL 11425   | 0h 00m 27s
+            TEST  | LOSS = 0.47863, ACC = 0.8728 , MICRO P/R/F1 = 0.6074	0.5153	0.5575 | TP/ACTUAL/PRED = 591    /1147   /973    , TOTAL 7373    | 0h 00m 05s
+
+Epoch: 29 | TRAIN | LOSS = 0.33186, ACC = 0.8901 , MICRO P/R/F1 = 0.6927	0.6107	0.6491 | TP/ACTUAL/PRED = 1161   /1901   /1676   , TOTAL 11418   | 0h 00m 27s
+            TEST  | LOSS = 0.48075, ACC = 0.8732 , MICRO P/R/F1 = 0.6066	0.5257	0.5633 | TP/ACTUAL/PRED = 603    /1147   /994    , TOTAL 7371    | 0h 00m 05s
+
+Epoch: 30 | TRAIN | LOSS = 0.33963, ACC = 0.8860 , MICRO P/R/F1 = 0.6825	0.5913	0.6336 | TP/ACTUAL/PRED = 1124   /1901   /1647   , TOTAL 11404   | 0h 00m 28s
+            TEST  | LOSS = 0.48075, ACC = 0.8741 , MICRO P/R/F1 = 0.6112	0.5248	0.5647 | TP/ACTUAL/PRED = 602    /1147   /985    , TOTAL 7371    | 0h 00m 04s
+
+Epoch: 31 | TRAIN | LOSS = 0.32504, ACC = 0.8911 , MICRO P/R/F1 = 0.7026	0.6002	0.6474 | TP/ACTUAL/PRED = 1141   /1901   /1624   , TOTAL 11414   | 0h 00m 29s
+            TEST  | LOSS = 0.48085, ACC = 0.8752 , MICRO P/R/F1 = 0.6169	0.5222	0.5656 | TP/ACTUAL/PRED = 599    /1147   /971    , TOTAL 7369    | 0h 00m 04s
+
+Epoch: 32 | TRAIN | LOSS = 0.30277, ACC = 0.8941 , MICRO P/R/F1 = 0.7069	0.6228	0.6622 | TP/ACTUAL/PRED = 1184   /1901   /1675   , TOTAL 11408   | 0h 00m 30s
+            TEST  | LOSS = 0.48014, ACC = 0.8758 , MICRO P/R/F1 = 0.6211	0.5187	0.5653 | TP/ACTUAL/PRED = 595    /1147   /958    , TOTAL 7367    | 0h 00m 05s
+
+Epoch: 33 | TRAIN | LOSS = 0.34671, ACC = 0.8867 , MICRO P/R/F1 = 0.6860	0.5897	0.6342 | TP/ACTUAL/PRED = 1121   /1901   /1634   , TOTAL 11417   | 0h 00m 30s
+            TEST  | LOSS = 0.48102, ACC = 0.8753 , MICRO P/R/F1 = 0.6166	0.5257	0.5675 | TP/ACTUAL/PRED = 603    /1147   /978    , TOTAL 7368    | 0h 00m 05s
+
+Epoch: 34 | TRAIN | LOSS = 0.29773, ACC = 0.9011 , MICRO P/R/F1 = 0.7411	0.6249	0.6781 | TP/ACTUAL/PRED = 1188   /1901   /1603   , TOTAL 11400   | 0h 00m 27s
+            TEST  | LOSS = 0.48205, ACC = 0.8749 , MICRO P/R/F1 = 0.6140	0.5283	0.5679 | TP/ACTUAL/PRED = 606    /1147   /987    , TOTAL 7369    | 0h 00m 05s
+
+Epoch: 35 | TRAIN | LOSS = 0.28221, ACC = 0.9018 , MICRO P/R/F1 = 0.7275	0.6560	0.6899 | TP/ACTUAL/PRED = 1247   /1901   /1714   , TOTAL 11410   | 0h 00m 29s
+            TEST  | LOSS = 0.48352, ACC = 0.8742 , MICRO P/R/F1 = 0.6104	0.5301	0.5674 | TP/ACTUAL/PRED = 608    /1147   /996    , TOTAL 7369    | 0h 00m 05s
+
+Epoch: 36 | TRAIN | LOSS = nan, ACC = 0.8965 , MICRO P/R/F1 = 0.7093	0.6418	0.6738 | TP/ACTUAL/PRED = 1220   /1901   /1720   , TOTAL 11414   | 0h 00m 29s
+            TEST  | LOSS = 0.48420, ACC = 0.8736 , MICRO P/R/F1 = 0.6080	0.5275	0.5649 | TP/ACTUAL/PRED = 605    /1147   /995    , TOTAL 7371    | 0h 00m 04s
+
+Epoch: 37 | TRAIN | LOSS = 0.30896, ACC = 0.8976 , MICRO P/R/F1 = 0.7265	0.6176	0.6676 | TP/ACTUAL/PRED = 1174   /1901   /1616   , TOTAL 11411   | 0h 00m 28s
+            TEST  | LOSS = 0.48427, ACC = 0.8727 , MICRO P/R/F1 = 0.6024	0.5336	0.5659 | TP/ACTUAL/PRED = 612    /1147   /1016   , TOTAL 7378    | 0h 00m 04s
+
+Epoch: 38 | TRAIN | LOSS = 0.28519, ACC = 0.8961 , MICRO P/R/F1 = 0.7100	0.6376	0.6718 | TP/ACTUAL/PRED = 1212   /1901   /1707   , TOTAL 11399   | 0h 00m 28s
+            TEST  | LOSS = 0.48600, ACC = 0.8728 , MICRO P/R/F1 = 0.6004	0.5423	0.5699 | TP/ACTUAL/PRED = 622    /1147   /1036   , TOTAL 7380    | 0h 00m 04s
+
+Epoch: 39 | TRAIN | LOSS = 0.30592, ACC = 0.8915 , MICRO P/R/F1 = 0.7046	0.5997	0.6479 | TP/ACTUAL/PRED = 1140   /1901   /1618   , TOTAL 11424   | 0h 00m 27s
+            TEST  | LOSS = 0.48680, ACC = 0.8734 , MICRO P/R/F1 = 0.6033	0.5423	0.5712 | TP/ACTUAL/PRED = 622    /1147   /1031   , TOTAL 7380    | 0h 00m 04s
+
+Epoch: 40 | TRAIN | LOSS = 0.28568, ACC = 0.8965 , MICRO P/R/F1 = 0.7022	0.6575	0.6792 | TP/ACTUAL/PRED = 1250   /1901   /1780   , TOTAL 11410   | 0h 00m 27s
+            TEST  | LOSS = 0.48909, ACC = 0.8726 , MICRO P/R/F1 = 0.5996	0.5432	0.5700 | TP/ACTUAL/PRED = 623    /1147   /1039   , TOTAL 7380    | 0h 00m 05s
+
+Epoch: 41 | TRAIN | LOSS = 0.26813, ACC = 0.9061 , MICRO P/R/F1 = 0.7521	0.6512	0.6981 | TP/ACTUAL/PRED = 1238   /1901   /1646   , TOTAL 11400   | 0h 00m 29s
+            TEST  | LOSS = 0.49102, ACC = 0.8732 , MICRO P/R/F1 = 0.6010	0.5475	0.5730 | TP/ACTUAL/PRED = 628    /1147   /1045   , TOTAL 7382    | 0h 00m 04s
+
+Epoch: 42 | TRAIN | LOSS = 0.28947, ACC = 0.9027 , MICRO P/R/F1 = 0.7364	0.6481	0.6894 | TP/ACTUAL/PRED = 1232   /1901   /1673   , TOTAL 11411   | 0h 00m 28s
+            TEST  | LOSS = 0.49201, ACC = 0.8731 , MICRO P/R/F1 = 0.6004	0.5475	0.5727 | TP/ACTUAL/PRED = 628    /1147   /1046   , TOTAL 7381    | 0h 00m 04s
+
+Epoch: 43 | TRAIN | LOSS = 0.26004, ACC = 0.9047 , MICRO P/R/F1 = 0.7434	0.6539	0.6958 | TP/ACTUAL/PRED = 1243   /1901   /1672   , TOTAL 11402   | 0h 00m 28s
+            TEST  | LOSS = 0.49368, ACC = 0.8720 , MICRO P/R/F1 = 0.5955	0.5493	0.5714 | TP/ACTUAL/PRED = 630    /1147   /1058   , TOTAL 7384    | 0h 00m 05s
+
+Epoch: 44 | TRAIN | LOSS = 0.27309, ACC = 0.8970 , MICRO P/R/F1 = 0.7047	0.6565	0.6797 | TP/ACTUAL/PRED = 1248   /1901   /1771   , TOTAL 11413   | 0h 00m 28s
+            TEST  | LOSS = 0.49579, ACC = 0.8720 , MICRO P/R/F1 = 0.5949	0.5519	0.5726 | TP/ACTUAL/PRED = 633    /1147   /1064   , TOTAL 7385    | 0h 00m 04s
+
+Epoch: 45 | TRAIN | LOSS = 0.26521, ACC = 0.9031 , MICRO P/R/F1 = 0.7303	0.6639	0.6955 | TP/ACTUAL/PRED = 1262   /1901   /1728   , TOTAL 11405   | 0h 00m 28s
+            TEST  | LOSS = 0.49724, ACC = 0.8716 , MICRO P/R/F1 = 0.5938	0.5493	0.5707 | TP/ACTUAL/PRED = 630    /1147   /1061   , TOTAL 7385    | 0h 00m 04s
+
+Epoch: 46 | TRAIN | LOSS = 0.26721, ACC = 0.9047 , MICRO P/R/F1 = 0.7393	0.6623	0.6987 | TP/ACTUAL/PRED = 1259   /1901   /1703   , TOTAL 11397   | 0h 00m 28s
+            TEST  | LOSS = 0.49887, ACC = 0.8715 , MICRO P/R/F1 = 0.5929	0.5510	0.5712 | TP/ACTUAL/PRED = 632    /1147   /1066   , TOTAL 7385    | 0h 00m 06s
+
+Epoch: 47 | TRAIN | LOSS = 0.27838, ACC = 0.9028 , MICRO P/R/F1 = 0.7363	0.6491	0.6900 | TP/ACTUAL/PRED = 1234   /1901   /1676   , TOTAL 11409   | 0h 00m 30s
+            TEST  | LOSS = 0.50025, ACC = 0.8711 , MICRO P/R/F1 = 0.5904	0.5554	0.5723 | TP/ACTUAL/PRED = 637    /1147   /1079   , TOTAL 7386    | 0h 00m 05s
+
+Epoch: 48 | TRAIN | LOSS = 0.30716, ACC = 0.9056 , MICRO P/R/F1 = 0.7442	0.6612	0.7003 | TP/ACTUAL/PRED = 1257   /1901   /1689   , TOTAL 11396   | 0h 00m 29s
+            TEST  | LOSS = 0.50189, ACC = 0.8712 , MICRO P/R/F1 = 0.5899	0.5606	0.5749 | TP/ACTUAL/PRED = 643    /1147   /1090   , TOTAL 7386    | 0h 00m 04s
+
+Epoch: 49 | TRAIN | LOSS = 0.28653, ACC = 0.9005 , MICRO P/R/F1 = 0.7140	0.6723	0.6925 | TP/ACTUAL/PRED = 1278   /1901   /1790   , TOTAL 11402   | 0h 00m 26s
+            TEST  | LOSS = 0.50392, ACC = 0.8704 , MICRO P/R/F1 = 0.5864	0.5623	0.5741 | TP/ACTUAL/PRED = 645    /1147   /1100   , TOTAL 7386    | 0h 00m 04s
+
+Epoch: 50 | TRAIN | LOSS = nan, ACC = 0.9064 , MICRO P/R/F1 = 0.7481	0.6623	0.7026 | TP/ACTUAL/PRED = 1259   /1901   /1683   , TOTAL 11392   | 0h 00m 30s
+            TEST  | LOSS = 0.50473, ACC = 0.8711 , MICRO P/R/F1 = 0.5889	0.5632	0.5758 | TP/ACTUAL/PRED = 646    /1147   /1097   , TOTAL 7385    | 0h 00m 05s
+
+Epoch: 51 | TRAIN | LOSS = 0.25855, ACC = 0.9083 , MICRO P/R/F1 = 0.7487	0.6786	0.7119 | TP/ACTUAL/PRED = 1290   /1901   /1723   , TOTAL 11390   | 0h 00m 30s
+            TEST  | LOSS = 0.50716, ACC = 0.8701 , MICRO P/R/F1 = 0.5848	0.5650	0.5747 | TP/ACTUAL/PRED = 648    /1147   /1108   , TOTAL 7385    | 0h 00m 04s
+
+Epoch: 52 | TRAIN | LOSS = 0.26876, ACC = 0.9043 , MICRO P/R/F1 = 0.7389	0.6581	0.6962 | TP/ACTUAL/PRED = 1251   /1901   /1693   , TOTAL 11412   | 0h 00m 30s
+            TEST  | LOSS = 0.50890, ACC = 0.8699 , MICRO P/R/F1 = 0.5833	0.5676	0.5753 | TP/ACTUAL/PRED = 651    /1147   /1116   , TOTAL 7384    | 0h 00m 05s
+
+Epoch: 53 | TRAIN | LOSS = 0.27320, ACC = 0.9027 , MICRO P/R/F1 = 0.7274	0.6654	0.6951 | TP/ACTUAL/PRED = 1265   /1901   /1739   , TOTAL 11406   | 0h 00m 28s
+            TEST  | LOSS = 0.51088, ACC = 0.8697 , MICRO P/R/F1 = 0.5821	0.5719	0.5770 | TP/ACTUAL/PRED = 656    /1147   /1127   , TOTAL 7384    | 0h 00m 04s
+
+Epoch: 54 | TRAIN | LOSS = 0.25341, ACC = 0.9076 , MICRO P/R/F1 = 0.7480	0.6728	0.7084 | TP/ACTUAL/PRED = 1279   /1901   /1710   , TOTAL 11400   | 0h 00m 27s
+            TEST  | LOSS = 0.51240, ACC = 0.8689 , MICRO P/R/F1 = 0.5784	0.5754	0.5769 | TP/ACTUAL/PRED = 660    /1147   /1141   , TOTAL 7384    | 0h 00m 04s
+
+Epoch: 55 | TRAIN | LOSS = 0.26237, ACC = 0.9077 , MICRO P/R/F1 = 0.7491	0.6723	0.7086 | TP/ACTUAL/PRED = 1278   /1901   /1706   , TOTAL 11391   | 0h 00m 30s
+            TEST  | LOSS = 0.51396, ACC = 0.8688 , MICRO P/R/F1 = 0.5775	0.5780	0.5778 | TP/ACTUAL/PRED = 663    /1147   /1148   , TOTAL 7384    | 0h 00m 04s
+
+Epoch: 56 | TRAIN | LOSS = 0.25701, ACC = 0.9105 , MICRO P/R/F1 = 0.7622	0.6744	0.7156 | TP/ACTUAL/PRED = 1282   /1901   /1682   , TOTAL 11391   | 0h 00m 28s
+            TEST  | LOSS = 0.51601, ACC = 0.8688 , MICRO P/R/F1 = 0.5773	0.5798	0.5785 | TP/ACTUAL/PRED = 665    /1147   /1152   , TOTAL 7385    | 0h 00m 04s
+
+Epoch: 57 | TRAIN | LOSS = 0.24605, ACC = 0.9111 , MICRO P/R/F1 = 0.7580	0.6870	0.7208 | TP/ACTUAL/PRED = 1306   /1901   /1723   , TOTAL 11384   | 0h 00m 28s
+            TEST  | LOSS = 0.51700, ACC = 0.8696 , MICRO P/R/F1 = 0.5796	0.5841	0.5818 | TP/ACTUAL/PRED = 670    /1147   /1156   , TOTAL 7385    | 0h 00m 05s
+
+Epoch: 58 | TRAIN | LOSS = 0.23924, ACC = 0.9099 , MICRO P/R/F1 = 0.7500	0.6896	0.7186 | TP/ACTUAL/PRED = 1311   /1901   /1748   , TOTAL 11396   | 0h 00m 30s
+            TEST  | LOSS = 0.51796, ACC = 0.8691 , MICRO P/R/F1 = 0.5777	0.5833	0.5805 | TP/ACTUAL/PRED = 669    /1147   /1158   , TOTAL 7386    | 0h 00m 04s
+
+Epoch: 59 | TRAIN | LOSS = 0.23822, ACC = 0.9132 , MICRO P/R/F1 = 0.7514	0.7170	0.7338 | TP/ACTUAL/PRED = 1363   /1901   /1814   , TOTAL 11389   | 0h 00m 30s
+            TEST  | LOSS = 0.51891, ACC = 0.8688 , MICRO P/R/F1 = 0.5769	0.5824	0.5796 | TP/ACTUAL/PRED = 668    /1147   /1158   , TOTAL 7386    | 0h 00m 05s
+
+Epoch: 60 | TRAIN | LOSS = 0.24852, ACC = 0.9087 , MICRO P/R/F1 = 0.7463	0.6854	0.7146 | TP/ACTUAL/PRED = 1303   /1901   /1746   , TOTAL 11408   | 0h 00m 32s
+            TEST  | LOSS = 0.52052, ACC = 0.8691 , MICRO P/R/F1 = 0.5775	0.5850	0.5812 | TP/ACTUAL/PRED = 671    /1147   /1162   , TOTAL 7386    | 0h 00m 04s
+
+Epoch: 61 | TRAIN | LOSS = 0.24884, ACC = 0.9099 , MICRO P/R/F1 = 0.7486	0.6923	0.7193 | TP/ACTUAL/PRED = 1316   /1901   /1758   , TOTAL 11401   | 0h 00m 31s
+            TEST  | LOSS = 0.52230, ACC = 0.8677 , MICRO P/R/F1 = 0.5720	0.5850	0.5784 | TP/ACTUAL/PRED = 671    /1147   /1173   , TOTAL 7391    | 0h 00m 05s
+
+Epoch: 62 | TRAIN | LOSS = 0.25293, ACC = 0.9055 , MICRO P/R/F1 = 0.7294	0.6875	0.7078 | TP/ACTUAL/PRED = 1307   /1901   /1792   , TOTAL 11415   | 0h 00m 29s
+            TEST  | LOSS = 0.52391, ACC = 0.8676 , MICRO P/R/F1 = 0.5718	0.5867	0.5792 | TP/ACTUAL/PRED = 673    /1147   /1177   , TOTAL 7389    | 0h 00m 05s
+
+Epoch: 63 | TRAIN | LOSS = 0.24000, ACC = 0.9090 , MICRO P/R/F1 = 0.7420	0.6959	0.7182 | TP/ACTUAL/PRED = 1323   /1901   /1783   , TOTAL 11410   | 0h 00m 28s
+            TEST  | LOSS = 0.52540, ACC = 0.8676 , MICRO P/R/F1 = 0.5717	0.5876	0.5795 | TP/ACTUAL/PRED = 674    /1147   /1179   , TOTAL 7388    | 0h 00m 04s
+
+Epoch: 64 | TRAIN | LOSS = 0.24714, ACC = 0.9073 , MICRO P/R/F1 = 0.7475	0.6712	0.7073 | TP/ACTUAL/PRED = 1276   /1901   /1707   , TOTAL 11395   | 0h 00m 29s
+            TEST  | LOSS = 0.52628, ACC = 0.8675 , MICRO P/R/F1 = 0.5713	0.5867	0.5789 | TP/ACTUAL/PRED = 673    /1147   /1178   , TOTAL 7388    | 0h 00m 04s
+
+Epoch: 65 | TRAIN | LOSS = 0.24379, ACC = 0.9119 , MICRO P/R/F1 = 0.7585	0.6923	0.7239 | TP/ACTUAL/PRED = 1316   /1901   /1735   , TOTAL 11391   | 0h 00m 27s
+            TEST  | LOSS = 0.52758, ACC = 0.8678 , MICRO P/R/F1 = 0.5722	0.5876	0.5798 | TP/ACTUAL/PRED = 674    /1147   /1178   , TOTAL 7389    | 0h 00m 04s
+
+Epoch: 66 | TRAIN | LOSS = 0.25728, ACC = 0.9069 , MICRO P/R/F1 = 0.7341	0.6928	0.7129 | TP/ACTUAL/PRED = 1317   /1901   /1794   , TOTAL 11397   | 0h 00m 27s
+            TEST  | LOSS = 0.52915, ACC = 0.8672 , MICRO P/R/F1 = 0.5703	0.5867	0.5784 | TP/ACTUAL/PRED = 673    /1147   /1180   , TOTAL 7389    | 0h 00m 05s
+
+Epoch: 67 | TRAIN | LOSS = 0.25598, ACC = 0.9119 , MICRO P/R/F1 = 0.7620	0.6870	0.7225 | TP/ACTUAL/PRED = 1306   /1901   /1714   , TOTAL 11391   | 0h 00m 31s
+            TEST  | LOSS = 0.53089, ACC = 0.8671 , MICRO P/R/F1 = 0.5699	0.5867	0.5782 | TP/ACTUAL/PRED = 673    /1147   /1181   , TOTAL 7389    | 0h 00m 05s
+
+Epoch: 68 | TRAIN | LOSS = 0.25169, ACC = 0.9107 , MICRO P/R/F1 = 0.7553	0.6870	0.7196 | TP/ACTUAL/PRED = 1306   /1901   /1729   , TOTAL 11398   | 0h 00m 26s
+            TEST  | LOSS = 0.53199, ACC = 0.8670 , MICRO P/R/F1 = 0.5695	0.5859	0.5776 | TP/ACTUAL/PRED = 672    /1147   /1180   , TOTAL 7389    | 0h 00m 04s
+
+Epoch: 69 | TRAIN | LOSS = 0.25625, ACC = 0.9099 , MICRO P/R/F1 = 0.7517	0.6849	0.7168 | TP/ACTUAL/PRED = 1302   /1901   /1732   , TOTAL 11417   | 0h 00m 32s
+            TEST  | LOSS = 0.53334, ACC = 0.8667 , MICRO P/R/F1 = 0.5685	0.5859	0.5771 | TP/ACTUAL/PRED = 672    /1147   /1182   , TOTAL 7389    | 0h 00m 05s
+
+Epoch: 70 | TRAIN | LOSS = 0.22865, ACC = 0.9163 , MICRO P/R/F1 = 0.7772	0.6991	0.7361 | TP/ACTUAL/PRED = 1329   /1901   /1710   , TOTAL 11388   | 0h 00m 32s
+            TEST  | LOSS = 0.53454, ACC = 0.8664 , MICRO P/R/F1 = 0.5676	0.5859	0.5766 | TP/ACTUAL/PRED = 672    /1147   /1184   , TOTAL 7390    | 0h 00m 04s
+
+Epoch: 71 | TRAIN | LOSS = 0.22308, ACC = 0.9138 , MICRO P/R/F1 = 0.7664	0.6954	0.7292 | TP/ACTUAL/PRED = 1322   /1901   /1725   , TOTAL 11395   | 0h 00m 27s
+            TEST  | LOSS = 0.53543, ACC = 0.8668 , MICRO P/R/F1 = 0.5689	0.5867	0.5777 | TP/ACTUAL/PRED = 673    /1147   /1183   , TOTAL 7390    | 0h 00m 05s
+
+Epoch: 72 | TRAIN | LOSS = 0.23350, ACC = 0.9127 , MICRO P/R/F1 = 0.7602	0.6970	0.7272 | TP/ACTUAL/PRED = 1325   /1901   /1743   , TOTAL 11387   | 0h 00m 27s
+            TEST  | LOSS = 0.53636, ACC = 0.8667 , MICRO P/R/F1 = 0.5680	0.5902	0.5789 | TP/ACTUAL/PRED = 677    /1147   /1192   , TOTAL 7391    | 0h 00m 05s
+
+Epoch: 73 | TRAIN | LOSS = 0.23343, ACC = 0.9105 , MICRO P/R/F1 = 0.7536	0.6886	0.7196 | TP/ACTUAL/PRED = 1309   /1901   /1737   , TOTAL 11396   | 0h 00m 28s
+            TEST  | LOSS = 0.53759, ACC = 0.8667 , MICRO P/R/F1 = 0.5677	0.5920	0.5796 | TP/ACTUAL/PRED = 679    /1147   /1196   , TOTAL 7392    | 0h 00m 05s
+
+Epoch: 74 | TRAIN | LOSS = 0.22379, ACC = 0.9208 , MICRO P/R/F1 = 0.7849	0.7238	0.7531 | TP/ACTUAL/PRED = 1376   /1901   /1753   , TOTAL 11386   | 0h 00m 29s
+            TEST  | LOSS = 0.53858, ACC = 0.8671 , MICRO P/R/F1 = 0.5690	0.5929	0.5807 | TP/ACTUAL/PRED = 680    /1147   /1195   , TOTAL 7389    | 0h 00m 04s
+
+Epoch: 75 | TRAIN | LOSS = 0.22994, ACC = 0.9177 , MICRO P/R/F1 = 0.7707	0.7212	0.7451 | TP/ACTUAL/PRED = 1371   /1901   /1779   , TOTAL 11392   | 0h 00m 29s
+            TEST  | LOSS = 0.54017, ACC = 0.8663 , MICRO P/R/F1 = 0.5661	0.5937	0.5796 | TP/ACTUAL/PRED = 681    /1147   /1203   , TOTAL 7391    | 0h 00m 04s
+
+Epoch: 76 | TRAIN | LOSS = 0.23119, ACC = 0.9106 , MICRO P/R/F1 = 0.7514	0.6933	0.7212 | TP/ACTUAL/PRED = 1318   /1901   /1754   , TOTAL 11394   | 0h 00m 28s
+            TEST  | LOSS = 0.54165, ACC = 0.8661 , MICRO P/R/F1 = 0.5650	0.5946	0.5794 | TP/ACTUAL/PRED = 682    /1147   /1207   , TOTAL 7391    | 0h 00m 04s
+
+Epoch: 77 | TRAIN | LOSS = 0.21154, ACC = 0.9166 , MICRO P/R/F1 = 0.7699	0.7128	0.7402 | TP/ACTUAL/PRED = 1355   /1901   /1760   , TOTAL 11401   | 0h 00m 29s
+            TEST  | LOSS = 0.54347, ACC = 0.8659 , MICRO P/R/F1 = 0.5645	0.5955	0.5796 | TP/ACTUAL/PRED = 683    /1147   /1210   , TOTAL 7391    | 0h 00m 05s
+
+Epoch: 78 | TRAIN | LOSS = 0.22950, ACC = 0.9178 , MICRO P/R/F1 = 0.7781	0.7102	0.7426 | TP/ACTUAL/PRED = 1350   /1901   /1735   , TOTAL 11393   | 0h 00m 28s
+            TEST  | LOSS = 0.54466, ACC = 0.8650 , MICRO P/R/F1 = 0.5613	0.5946	0.5775 | TP/ACTUAL/PRED = 682    /1147   /1215   , TOTAL 7392    | 0h 00m 05s
+
+Epoch: 79 | TRAIN | LOSS = 0.23691, ACC = 0.9130 , MICRO P/R/F1 = 0.7463	0.7244	0.7352 | TP/ACTUAL/PRED = 1377   /1901   /1845   , TOTAL 11404   | 0h 00m 29s
+            TEST  | LOSS = 0.54559, ACC = 0.8646 , MICRO P/R/F1 = 0.5601	0.5929	0.5760 | TP/ACTUAL/PRED = 680    /1147   /1214   , TOTAL 7392    | 0h 00m 04s
+
+Epoch: 80 | TRAIN | LOSS = 0.22757, ACC = 0.9212 , MICRO P/R/F1 = 0.7872	0.7238	0.7542 | TP/ACTUAL/PRED = 1376   /1901   /1748   , TOTAL 11390   | 0h 00m 29s
+            TEST  | LOSS = 0.54709, ACC = 0.8647 , MICRO P/R/F1 = 0.5604	0.5946	0.5770 | TP/ACTUAL/PRED = 682    /1147   /1217   , TOTAL 7392    | 0h 00m 05s
+
+Best epoch: 80
+            TEST  | LOSS = 0.54709, ACC = 0.8647 , MICRO P/R/F1 = 0.5604	0.5946	0.5770 | TP/ACTUAL/PRED = 682    /1147   /1217   , TOTAL 7392    | 0h 00m 05s
+
+Saving errors ... DONE
+Saving predictions ... DONE
+
+======== END TRAINING: 18-05-23_10:28:33 ========
+
+training time: 0 hours 45 minutes 36 seconds
+time/per_epoch: 0 hours 0 minutes 34 seconds
+
+Saving the model & the parameters ...

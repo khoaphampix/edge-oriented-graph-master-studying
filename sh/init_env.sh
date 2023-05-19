@@ -22,8 +22,14 @@ pip install --target=$nb_path yamlordereddictloader
 pip install --target=$nb_path recordtype
 pip install --target=$nb_path jupyter_beeper
 
+snap install nvtop  # version 3.0.1, or
+apt install gpustat
+
 # Command 3 - Changing directory
-cd /home/edge-oriented-graph-master-studying/src
+cd /home/edge-oriented-graph-master-studying/embeds
+ls
+unzip PubMed-VLSP-v1.1.zip && 
+ls
 
 # Command 4 - Running script
 # sh run.sh

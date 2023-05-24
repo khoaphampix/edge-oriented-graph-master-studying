@@ -6,8 +6,7 @@ remote_host=$HOST_IP
 # remote_host=65.109.75.59
 remote_user="root"
 command_to_run=""
-
-scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/data/PubMed-VLSP.txt.zip root@$HOST_IP:/home/edge-oriented-graph-master-studying/embeds/PubMed-VLSP.txt.zip
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/edge-oriented-graph-master-WORKING/dataProcessingOfficial/dev_processed/split_sentence_underthesea/code/BERT_merge_file/data/PubMed-VLSP.txt.zip root@$HOST_IP:/home/edge-oriented-graph-master-studying/embeds/PubMed-VLSP.txt.zip
 
 
 

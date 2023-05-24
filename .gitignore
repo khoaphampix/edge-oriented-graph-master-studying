@@ -2,6 +2,7 @@
 *.idea
 data/CDR/
 data/GDA/
+data/BERT_embedded_words
 data/VLSP/dummy
 data/VLSP/processed
 data/VLSP/processed_bak

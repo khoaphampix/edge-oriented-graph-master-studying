@@ -246,6 +246,7 @@ scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_A
 scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/BERT_create_corpus/view_data/data.zip root@65.108.32.184:/home/edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/BERT_create_corpus/view_data/
 
 
+
 jupyter nbconvert --execute --to python /home/edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/BERT_create_corpus/view_data/server_code/6.3.WordEmbeddingPhoBERT.ipynb
 
 
@@ -257,3 +258,14 @@ cd /home/edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_p
 
 jupyter nbconvert --execute 6.4.LARGE_WordEmbeddingPhoBERT.ipynb
 
+
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/BERT_create_corpus/view_data/PubMed-VLSP-v1.2-large-192.txt.zip  root@65.108.32.175:/home/edge-oriented-graph-master-studying/embeds
+
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/BERT_create_corpus/view_data/data.zip  root@65.108.32.175:/home/edge-oriented-graph-master-studying/embeds
+
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/edge-oriented-graph-master-WORKING/dataProcessingOfficial/dev_processed/split_sentence_underthesea/code/BERT_merge_file/data/PubMed-VLSP-new-final-standard-256-large-24-05-23_.txt.zip root@65.108.32.175:/home/edge-oriented-graph-master-studying/embeds
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/data/BERT_embedded_words/PubMed-VLSP_256-large-24-05-23.txt.zip root@65.108.33.66:/home/edge-oriented-graph-master-studying/embeds

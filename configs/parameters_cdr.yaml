@@ -69,7 +69,7 @@ type_dim: 10
 dist_dim: 10
 drop_i: 0.53
 drop_m: 0.0
-drop_o: 0.27
+drop_o: 0.28
 gc: 10
 # reg: 0.0001
 reg: 0.00011
@@ -106,13 +106,13 @@ folder: ../results/vlsp-test
 
 # embeds: 0
 # freeze_words: false
-word_dim: 192
+word_dim: 256
 
 # ------------------------------
-batch: 2
+batch: 1
 bilstm_layers: 1
-beta: 0.7
-lr: 0.0034
+beta: 0.75
+lr: 0.0038
 lstm_dim: 80
 out_dim: 80
 walks_iter: 2

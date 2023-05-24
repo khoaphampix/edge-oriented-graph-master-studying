@@ -139,6 +139,78 @@ phoBERT.bpe = fastBPE(args) #Incorporate the BPE encoder into PhoBERT
 # In[4]:
 
 
+import torch
+import matplotlib.pyplot as plt
+
+def draw_tensor(tensor):
+    # Define the tensor
+
+    # Convert the tensor to a NumPy array
+    tensor_array = tensor.numpy()
+
+    # Create a figure and axis
+    fig, ax = plt.subplots()
+
+    # Plot the tensor values
+    ax.plot(tensor_array)
+
+    # Set the labels and title
+    ax.set_xlabel('Index')
+    ax.set_ylabel('Value')
+    ax.set_title('Tensor Visualization')
+
+    # Display the plot
+    plt.show()
+
+
+# tensor = torch.randn(1024)
+# print(tensor.shape)
+# draw_tensor(tensor)
+
+
+# In[5]:
+
+
+import torch
+import numpy as np
+from sklearn.random_projection import SparseRandomProjection
+
+def compress_vector(input_vector, input_dim, output_dim):
+    # Convert the input tensor to a NumPy array
+    vector = input_vector.detach().numpy()
+
+    # Create a SparseRandomProjection object with the desired output dimensionality
+    random_projection = SparseRandomProjection(n_components=output_dim)
+
+    # Fit the random projection model to the vector and transform it to the reduced dimensionality
+    compressed_vector = random_projection.fit_transform(vector.reshape(1, -1))
+
+    # Flatten the compressed vector to a 1D list
+    compressed_vector = compressed_vector.flatten()
+
+    # Convert the compressed vector back to a PyTorch tensor
+    compressed_vector = torch.from_numpy(compressed_vector)
+
+
+    return compressed_vector
+
+
+# input_vector = torch.randn(input_dim)
+# print(input_vector.shape)
+# print(input_vector)
+
+# print(input_vector.size())
+# # input_dim = 1024
+# # output_dim = 128
+
+# compressed_vector = compress_vector(input_vector, input_dim, output_dim)
+# print(compressed_vector)
+# print(len(compressed_vector))
+
+
+# In[6]:
+
+
 import numpy as np
 
 def sentence_with_word_tokenize(sentence_org):
@@ -172,9 +244,48 @@ def reduce_emb_vec_org(vt1):
   # return vt1_mean
 
 def reduce_emb_vec(vt1):
-  vt1_np = vt1.detach().numpy()
-  vt1_mean = vt1_np.reshape(-1, 4).mean(axis=1)
+  # print("* "*100)
+  # print("IN >> ", vt1)
+  # print("IN >> ", vt1.shape,vt1.shape[0],  type(vt1))
+
+  # print(vt1.shape, type(vt1))
+  # input_dim = 1024
+  input_dim = vt1.shape[0]
+  output_dim = 192
+  vt1_mean = compress_vector(vt1, input_dim, output_dim)
+
+  # print("OUT >> ", vt1_mean.shape)
+  # print("\n\n", "* "*40)
+  # draw_tensor(vt1)
+  # vt1 =  vt1.detach().to(torch.float64)
+  # draw_tensor(vt1)
+  # draw_tensor(vt1_mean)
+
+  # print(vt1)
+  # print(vt1_mean)
+  # print(type(vt1), vt1.shape)
+  vt1_mean = vt1_mean.numpy()
+  print(type(vt1_mean), vt1_mean.shape)
+
+  
+
   return vt1_mean
+
+
+# def reduce_emb_vec(vt1):
+#   print("* "*100)
+#   # print("IN >> ", vt1)
+#   # print("IN >> ", vt1.shape, type)
+
+#   vt1_np = vt1.detach().numpy()
+#   vt1_mean = vt1_np.reshape(-1, 4).mean(axis=1)
+#   # print("OUT >> ", vt1_mean.shape)
+
+
+#   print(type(vt1), vt1.shape)
+#   print(type(vt1_mean), vt1_mean.shape)
+
+#   return vt1_mean
 
 def embedding_words_in_sents_full_shape(sentence):
   tokens = sentence.split(" ")
@@ -205,7 +316,7 @@ def embedding_words_in_sents_full_shape(sentence):
 #         out.write(f'')
 
 
-# In[5]:
+# In[7]:
 
 
 import json
@@ -240,7 +351,7 @@ def split_sentence(sentence, max_words):
     return sub_sentences
 
 
-# In[6]:
+# In[8]:
 
 
 sent = "bàn thắng Sang hiệp 2 , HLV Vũ_Hồng Việt yêu_cầu các học_trò tấn_công mạnh_mẽ hơn nữa , trong khi U16 Mông_Cổ có dấu_hiệu xuống sức rõ_rệt Những bàn thắng đến như một tất_yếu Riêng ở hiệp đấu này , Chí_Bảo đã ghi tới 4 bàn thắng , giúp U16 Việt_Nam thắng chung_cuộc 9 Như_vậy qua 2 trận đấu , U16 Việt_Nam toàn_thắng , ghi tới 14 bàn và để lọt_lưới 2 , hiệu_số bàn thắng_bại là 12 Tại bảng I lúc này , thầy_trò Vũ_Hồng Việt có cùng điểm_số như U16_Australia nhưng xếp dưới vì kém hiệu_số bàn thắng_bạ"
@@ -328,7 +439,7 @@ print("error_count sent: ", error_count)
 
 
 
-# In[7]:
+# In[9]:
 
 
 # s = "Phạm tội thuộc một trong các trường hợp sau đây , thì bị phạt tù từ bảy năm đến mười lăm năm a Có tổ chức b Phạm tội nhiều lần c Lợi dụng chức vụ , quyền hạn d Lợi dụng danh nghĩa cơ quan , tổ chức đ Vận chuyển , mua bán qua biên giới e Sử dụng trẻ em vào việc phạm tội hoặc bán ma tuý cho trẻ em g Nhựa thuốc phiện , nhựa cần sa hoặc cao côca có trọng lượng từ năm trăm gam đến dưới một kilôgam h Hêrôin hoặc côcain có trọng lượng từ năm gam đến dưới ba mươi gam i Lá , hoa , quả cây cần sa hoặc lá cây côca có trọng lượng từ mười kilôgam đến dưới hai mươi lăm kilôgam k Quả thuốc phiện khô có trọng lượng từ năm mươi kilôgam đến dưới hai trăm kilôgam l Quả thuốc phiện tươi có trọng lượng từ mười kilôgam đến dưới năm mươi kilôgam m Các chất ma tuý khác ở thể rắn có trọng lượng từ hai mươi gam đến dưới một trăm gam n Các chất ma tuý khác ở thể lỏng từ một trăm mililít đến dưới hai trăm năm mươi mililít o Có từ hai chất ma tuý trở lên mà tổng số lượng của các chất đó tương đương với số lượng chất ma tuý quy định tại một trong các điểm từ điểm g đến điểm n khoản 2 Điều này p Tái phạm nguy hiểm"

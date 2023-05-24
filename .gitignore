@@ -58,3 +58,4 @@ results/*
 results/
 blob/
 blob/*
+dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/BERT_create_corpus/view_data/*.zip

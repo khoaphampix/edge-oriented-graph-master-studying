@@ -255,4 +255,5 @@ jupyter nbconvert --execute --to python /home/edge-oriented-graph-master-studyin
 
 cd /home/edge-oriented-graph-master-studying/dataProcessingOfficialCleaned/dev_processed/split_sentence_underthesea/code/BERT_merge_file/BERT_create_corpus/view_data
 
-jupyter nbconvert --execute 6.3.WordEmbeddingPhoBERT.ipynb
+jupyter nbconvert --execute 6.4.LARGE_WordEmbeddingPhoBERT.ipynb
+

@@ -41,11 +41,11 @@ include_pairs: ['LOCATION-LOCATION', 'LOCATION-PERSON', 'LOCATION-ORGANIZATION',
 classify_pairs: ['PERSON-LOCATION', 'ORGANIZATION-LOCATION', 'LOCATION-LOCATION', 'ORGANIZATION-ORGANIZATION', 'PERSON-PERSON', 'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION']
 
 
-edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+# edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind']
 # edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind', 'SS']
 # edges: ['ES', 'SS', 'SS-ind']
 # edges: ['ME', 'ES', 'SS-ind']
-# edges: ['ES', 'SS-ind']
+edges: ['ES', 'SS-ind']
 window:
 
 # classify_pairs: [
@@ -67,9 +67,9 @@ word_dim: 192
 
 type_dim: 10
 dist_dim: 10
-drop_i: 0.53
+drop_i: 0.52
 drop_m: 0.0
-drop_o: 0.28
+drop_o: 0.27
 gc: 10
 # reg: 0.0001
 reg: 0.00011
@@ -98,21 +98,56 @@ test_data:  ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_229_rm_z
 # train_data: ../data/VLSP/processed/vlsp_processed_13_05_23_16h30_TRAIN_line_497_stop_word_remove_all_special
 # test_data:  ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_230_DEV
 
+# edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+# edges: ['MM', 'ME', 'MS', 'ES', 'SS'] # tested ok 0.57
+# edges: ['MM', 'ME', 'MS', 'ES'] # tested - good 0.588
+
+# edges: ['ME', 'MS', 'ES', 'SS', 'SS-ind'] # MM 
+# edges: ['MM', 'MS', 'ES', 'SS', 'SS-ind'] # ME
+# edges: ['MM', 'ME', 'ES', 'SS', 'SS-ind'] # MS
+edges: ['MM', 'ME', 'MS', 'SS', 'SS-ind'] # ES
+# edges: ['ME', 'ES' ,'SS', 'SS-ind'] # MM, MS
+# edges: ['ME', 'ES'] # MM, MS, SS
+
+
+
+
+
+
+
+# edges: ['ES', 'SS', 'SS-ind']
+# edges: ['ME', 'ES', 'SS-ind'] # tested
+# edges: ['ME', 'MS', 'ES', 'SS-ind'] # tested
+# edges: ['ES', 'SS-ind'] # tested
+
 
 embeds: ../embeds/PubMed-VLSP.txt
+# embeds: ../embeds/dev_train_not_standard.txt
+# embeds: ../embeds/PubMed-VLSP.txt # 256 standard
+# embeds: ../embeds/PubMed-VLSP-new-final-standard.txt #
+
+
+
 freeze_words: true
-folder: ../results/vlsp-test
-# folder: ../results/vlsp-test-new
+# freeze_words: false
+# folder: ../results/vlsp-test # MS 
+folder: ../results/vlsp-test-new # ES
+# folder: ../results/vlsp-test-new-2 # MM, MS
+# folder: ../results/vlsp-test-new-3 # MM, MS, SS
 
 # embeds: 0
 # freeze_words: false
-word_dim: 256
+word_dim: 192
 
+reg: 0.00011
+
+drop_i: 0.53
+drop_o: 0.28
 # ------------------------------
-batch: 1
+batch: 2
 bilstm_layers: 1
 beta: 0.75
-lr: 0.0038
+lr: 0.0035
 lstm_dim: 80
 out_dim: 80
 walks_iter: 2

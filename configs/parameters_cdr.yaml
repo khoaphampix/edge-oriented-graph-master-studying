@@ -105,11 +105,13 @@ test_data:  ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_229_rm_z
 # edges: ['ME', 'MS', 'ES', 'SS', 'SS-ind'] # MM 
 # edges: ['MM', 'MS', 'ES', 'SS', 'SS-ind'] # ME
 # edges: ['MM', 'ME', 'ES', 'SS', 'SS-ind'] # MS
-edges: ['MM', 'ME', 'MS', 'SS', 'SS-ind'] # ES
+# edges: ['MM', 'ME', 'MS', 'SS', 'SS-ind'] # ES
 # edges: ['ME', 'ES' ,'SS', 'SS-ind'] # MM, MS
 # edges: ['ME', 'ES'] # MM, MS, SS
 
 
+# edges: ['MM', 'ME', 'MS', 'SS', 'SS-ind'] # BEST
+edges: ['MM', 'ME', 'MS'] # BEST tested ok 0.6
 
 
 
@@ -130,8 +132,8 @@ embeds: ../embeds/PubMed-VLSP.txt
 
 freeze_words: true
 # freeze_words: false
-# folder: ../results/vlsp-test # MS 
-folder: ../results/vlsp-test-new # ES
+folder: ../results/vlsp-test # MS 
+# folder: ../results/vlsp-test-new # ES
 # folder: ../results/vlsp-test-new-2 # MM, MS
 # folder: ../results/vlsp-test-new-3 # MM, MS, SS
 
@@ -141,13 +143,13 @@ word_dim: 192
 
 reg: 0.00011
 
-drop_i: 0.53
-drop_o: 0.28
+drop_i: 0.54
+drop_o: 0.29
 # ------------------------------
 batch: 2
 bilstm_layers: 1
-beta: 0.75
-lr: 0.0035
+beta: 0.7
+lr: 0.0037
 lstm_dim: 80
 out_dim: 80
 walks_iter: 2

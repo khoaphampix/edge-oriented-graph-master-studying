@@ -126,7 +126,9 @@ edges: ['MM', 'ME', 'MS'] # BEST tested ok 0.6
 embeds: ../embeds/PubMed-VLSP.txt
 # embeds: ../embeds/dev_train_not_standard.txt
 # embeds: ../embeds/PubMed-VLSP.txt # 256 standard
-# embeds: ../embeds/PubMed-VLSP-new-final-standard.txt #
+# embeds: ../embeds/PubMed-VLSP-new-final-standard_bert_v2.txt
+# embeds: ../embeds/dev_train_not_standard_bert_v2.txt
+
 
 
 
@@ -143,12 +145,12 @@ word_dim: 192
 
 reg: 0.00011
 
-drop_i: 0.54
+drop_i: 0.53
 drop_o: 0.29
 # ------------------------------
 batch: 2
 bilstm_layers: 1
-beta: 0.7
+beta: 0.75
 lr: 0.0037
 lstm_dim: 80
 out_dim: 80

@@ -57,7 +57,11 @@ def train(parameters):
 
 
 def test(parameters):
-    model_folder = setup_log(parameters, 'test')
+    # model_folder = setup_log(parameters, 'test')
+    if parameters.get('direct_model_folder', None):
+        model_folder = parameters.get('direct_model_folder', None)
+    else:
+        model_folder = setup_log(parameters, 'test')
 
     print('\nLoading mappings ...')
     train_loader = load_mappings(model_folder)

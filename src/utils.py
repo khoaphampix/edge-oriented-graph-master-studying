@@ -264,7 +264,11 @@ def load_model(model_folder, trainer):
 
 def load_mappings(model_folder):
     with open(os.path.join(model_folder, 'mappings.pkl'), 'rb') as f:
-        loader = pkl.load(f)
+        try:
+            loader = pkl.load(f)
+        except:
+            import pickle5
+            loader = pickle5.load(f)
     return loader
 
 

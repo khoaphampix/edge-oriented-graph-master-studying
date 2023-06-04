@@ -277,3 +277,26 @@ scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_A
 
 
 scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/BACKUP_data_train_drive/BERT_emb_dict/PubMed-VLSP_BERT_V2_30-05-23.zip root@65.108.32.156:/home/edge-oriented-graph-master-studying/embeds
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/BACKUP_data_train_drive/BERT_emb_dict/PubMed-VLSP_BERT_V2_30-05-23.zip root@65.108.32.156:/home/edge-oriented-graph-master-studying/embeds
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/data/BERT_embedded_words/PubMed-VLSP_256-large-24-05-23.txt.zip root@65.109.75.22:/home/edge-oriented-graph-master-studying/embeds
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/data/BERT_embedded_words/PubMed-VLSP-v1.2-large-192.txt.zip root@65.109.75.22:/home/edge-oriented-graph-master-studying/embeds
+
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/data/BERT_embedded_words/PubMed-VLSP-LARGE-merge-all-version.zip root@65.109.75.22:/home/edge-oriented-graph-master-studying/embeds
+
+
+
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/data/BERT_embedded_words/PubMed-VLSP_256-large-24-05-23.txt.zip root@65.108.32.141:/home/edge-oriented-graph-master-studying/embeds
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/data/BERT_embedded_words/PubMed-VLSP-v1.2-large-192.txt.zip root@65.108.32.141:/home/edge-oriented-graph-master-studying/embeds
+
+
+
+scp /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/ORIGIN_RUN_ALL_edge-oriented-graph-master-studying/data/BERT_embedded_words/PubMed-VLSP-LARGE-merge-all-version.zip root@65.108.32.141:/home/edge-oriented-graph-master-studying/embeds
+
+
+

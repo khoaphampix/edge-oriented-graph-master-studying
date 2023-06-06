@@ -85,8 +85,10 @@ train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_411_rm
 test_data:  ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_229_rm_zero_rel_below_3000_checked_sent
 
 # for -- test only
-# test_data:  ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_229_rm_zero_rel_below_3000_checked_sent_small
-# direct_model_folder: ../results/temp_2023-05-31_22-21-18-BEST-GOOD-FUTURE/b4-walks4_MM_ME_MS_context_types_dist_freeze
+test_data:  ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_229_rm_zero_rel_below_3000_checked_sent_small
+direct_model_folder: ../results/temp_2023-05-31_22-21-18-BEST-GOOD-FUTURE/b4-walks4_MM_ME_MS_context_types_dist_freeze
+
+direct_model_folder: /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/result_from_colab/FILTERED_1st_full_dataset_100_percent_before_31_05_23_17h_00/temp_2023-05-31_16-00-22-BEST/b2-walks4_MM_ME_MS_context_types_dist_freeze
 
 # train_data: ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_497_TRAIN
 # test_data:  ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_230_DEV

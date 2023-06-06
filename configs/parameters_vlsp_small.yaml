@@ -1,0 +1,168 @@
+# # ## vlsp data
+# train_data: ../data/VLSP/processed/vlsp_processed_train_SHUFFLE_340_date_06_05_1st_filtered.data
+# test_data: ../data/VLSP/processed/vlsp_processed_dev_SHUFFLE_180_date_06_05_1st_filtered.data
+
+
+
+
+# # ## vlsp data
+# train_data: ../data/VLSP/processed/vlsp_processed_08_05_23_16h_TRAIN_line_442_1st_filtered_with_no_rel_remove_big.data
+# test_data: ../data/VLSP/processed/vlsp_processed_08_05_23_16h_DEV_line_224_1st_filtered_with_no_rel_remove_big
+embeds: 
+# embeds: ../embeds/PubMed-VLSP.txt
+folder: ../results/vlsp-test
+save_pred: test
+
+# train_data: ../data/VLSP/tunning/vlsp_tunning_train.data
+# test_data:  ../data/VLSP/tunning/vlsp_tunning_test.data
+
+
+# options (chosen from parse input otherwise false)
+lowercase: false
+plot: true
+show_class: false
+param_avg: true
+early_stop: false
+save_model: true
+types: true
+context: true
+dist: true
+freeze_words: true
+
+# extras
+seed: 0
+shuffle_data: true
+label2ignore: 1:NR:2 # need to label data in VLSP
+primary_metric: micro_f
+# direction: l2r+r2l
+direction: l2r+r2l
+
+# # vlsp data
+include_pairs: ['LOCATION-LOCATION', 'LOCATION-PERSON', 'LOCATION-ORGANIZATION', 'PERSON-LOCATION', 'PERSON-PERSON', 'PERSON-ORGANIZATION', 'ORGANIZATION-LOCATION', 'ORGANIZATION-PERSON', 'ORGANIZATION-ORGANIZATION']
+classify_pairs: ['PERSON-LOCATION', 'ORGANIZATION-LOCATION', 'LOCATION-LOCATION', 'ORGANIZATION-ORGANIZATION', 'PERSON-PERSON', 'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION']
+
+
+# edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+# edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind', 'SS']
+# edges: ['ES', 'SS', 'SS-ind']
+# edges: ['ME', 'ES', 'SS-ind']
+edges: ['ES', 'SS-ind']
+window:
+
+# classify_pairs: [
+#     # 1 LOCATED
+#     'PERSON-LOCATION, 'ORGANIZATION-LOCATION',
+#     # 2 PART–WHOLE
+#     'LOCATION-LOCATION, 'ORGANIZATION-ORGANIZATION', #'ORGANIZATION-LOCATION',
+#     # 3 PERSONAL–SOCIAL
+#     'PERSON-PERSON',
+#     # 4 AFFILIATION
+#     'PERSON-ORGANIZATION', 'LOCATION-ORGANIZATION' #PERSON-LOCATION, 'ORGANIZATION-ORGANIZATION'\]
+# ]
+
+# network
+batch: 1
+epoch: 50
+# bilstm_layers: 2
+word_dim: 192
+
+type_dim: 10
+dist_dim: 10
+drop_i: 0.52
+drop_m: 0.0
+drop_o: 0.27
+gc: 10
+# reg: 0.0001
+reg: 0.00011
+opt: adam
+patience: 10
+unk_w_prob: 0.5
+min_w_freq: 1
+
+# train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_402_rm_zero_rel_below_1000_checked_sent_DUPLICATE_3times
+# test_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_221_rm_zero_rel_below_1000_checked_sent
+
+train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_411_rm_zero_rel_below_3000_checked_sent
+test_data:  ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_229_rm_zero_rel_below_3000_checked_sent
+
+# for -- test only
+test_data:  ../data/VLSP/processed/vlsp_processed_10_05_23_16h_DEV_line_229_rm_zero_rel_below_3000_checked_sent_small
+direct_model_folder: ../results/temp_2023-05-31_22-21-18-BEST-GOOD-FUTURE/b4-walks4_MM_ME_MS_context_types_dist_freeze
+
+direct_model_folder: /Users/n2t2k/Documents/Studying/Master/Thesis/InProgress/Coding/result_from_colab/FILTERED_1st_full_dataset_100_percent_before_31_05_23_17h_00/temp_2023-05-31_16-00-22-BEST/b2-walks4_MM_ME_MS_context_types_dist_freeze
+
+# train_data: ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_497_TRAIN
+# test_data:  ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_230_DEV
+
+train_data: ../data/VLSP/dummy/test_dummy
+test_data:  ../data/VLSP/dummy/train_dummy
+
+# train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_411_rm_zero_rel_below_3000_checked_sent
+# test_data:  ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_230_DEV
+
+# train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_402_rm_zero_rel_below_1000_checked_sent_DUPLICATE_times_code_1_code_2
+# train_data: ../data/VLSP/processed/vlsp_processed_10_05_23_16h_TRAIN_line_402_rm_zero_rel_below_1000_checked_sent
+
+# train_data: ../data/VLSP/processed/vlsp_processed_13_05_23_16h30_TRAIN_line_497_stop_word_remove_all_special
+# test_data:  ../data/VLSP/processed/vlsp_18_05_23_1h_FOR_BERT_FULL_line_230_DEV
+
+# edges: ['MM', 'ME', 'MS', 'ES', 'SS-ind']
+# edges: ['MM', 'ME', 'MS', 'ES', 'SS'] # tested ok 0.57
+# edges: ['MM', 'ME', 'MS', 'ES'] # tested - good 0.588
+
+# edges: ['ME', 'MS', 'ES', 'SS', 'SS-ind'] # MM 
+# edges: ['MM', 'MS', 'ES', 'SS', 'SS-ind'] # ME
+# edges: ['MM', 'ME', 'ES', 'SS', 'SS-ind'] # MS
+# edges: ['MM', 'ME', 'MS', 'SS', 'SS-ind'] # ES
+# edges: ['ME', 'ES' ,'SS', 'SS-ind'] # MM, MS
+# edges: ['ME', 'ES'] # MM, MS, SS
+
+
+# edges: ['MM', 'ME', 'MS', 'SS', 'SS-ind'] # BEST
+# edges: ['MM', 'ME', 'MS'] # BEST tested ok 0.6
+edges: ['MM', 'ME', 'MS', 'ES', 'SS', 'SS-ind'] # BEST
+
+
+
+
+
+
+# edges: ['ES', 'SS', 'SS-ind']
+# edges: ['ME', 'ES', 'SS-ind'] # tested
+# edges: ['ME', 'MS', 'ES', 'SS-ind'] # tested
+# edges: ['ES', 'SS-ind'] # tested
+
+
+# embeds: ../embeds/PubMed-VLSP.txt
+# embeds: ../embeds/dev_train_not_standard.txt
+# embeds: ../embeds/PubMed-VLSP.txt # 256 standard
+# embeds: ../embeds/PubMed-VLSP-new-final-standard_bert_v2.txt
+# embeds: ../embeds/dev_train_not_standard_bert_v2.txt
+
+
+
+
+freeze_words: true
+# freeze_words: false
+folder: ../results/vlsp-test # MS 
+# folder: ../results/vlsp-test-new # ES
+# folder: ../results/vlsp-test-new-2 # MM, MS
+# folder: ../results/vlsp-test-new-3 # MM, MS, SS
+
+# embeds: 0
+# freeze_words: false
+word_dim: 192
+
+reg: 0.00011
+
+drop_i: 0.53
+drop_o: 0.29
+# ------------------------------
+batch: 2
+bilstm_layers: 1
+beta: 0.75
+lr: 0.0037
+lstm_dim: 73
+out_dim: 73
+walks_iter: 2
+
